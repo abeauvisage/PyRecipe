@@ -18,17 +18,19 @@ from RecipeLoader import *
 from MainPage import *
 import Settings
 
-# from root.kv
-class ShowcaseScreen(Screen):
-    fullscreen = BooleanProperty(False)
+# from recipe.kv
 
-    def add_widget(self, *args):
-        if "content" in self.ids:
-            return self.ids.content.add_widget(*args)
-        return super(ShowcaseScreen, self).add_widget(*args)
+class TitleWidget(Label):
 
-# List for ingredients, instructions,... or else!
-# replace in RecipePage.py
+    def setTitle(self, txt):
+        print("setting txt: {}".format(txt))
+        self.text = "[b]" + txt + "[/b]"
+
+class DescriptionWidget(BoxLayout):
+
+    def setDescription(self,txt):
+        self.ids["_description_content_"].text = txt
+
 class ListWidget(ScrollView):
 
     def setTitle(self, title):
@@ -40,12 +42,11 @@ class ListWidget(ScrollView):
     def removeAllItems(self):
         self.ids["_label_"].text = ""
 
-# replacing RecipePage.py
 class RecipeWidget(Screen):
 
     def cleanRecipe(self):
-        self.ids._title_.setText('')
-        self.ids["_description_"].text = ""
+        self.ids._title_.setTitle('')
+        self.ids["_description_"].setDescription("")
         self.ids["_ingredients_"].removeAllItems()
         self.ids["_instructions_"].removeAllItems()
 
@@ -53,9 +54,9 @@ class RecipeWidget(Screen):
     def setRecipe(self, recipe):
         self.cleanRecipe()
         print('setting recipe Screen')
-        self.ids._title_.setText(recipe.name)
-        self.ids["_description_"].text += "for " + str(recipe.nb_persons) + " persons."
-        print(self.ids["_description_"].valign)
+        self.ids._title_.setTitle(recipe.name)
+        self.ids["_description_"].setDescription("for " +
+                                                 str(recipe.nb_persons) + "persons.")
         self.ids["_ingredients_"].setTitle("Ingredients")
         for item in recipe.ingredients:
             self.ids["_ingredients_"].addItem(item["name"])
@@ -63,21 +64,24 @@ class RecipeWidget(Screen):
         for item in recipe.instructions:
             self.ids["_instructions_"].addItem(item)
 
+# from root.kv
+
 # Scrollable area to contain lists
 class ScrollableLabel(ScrollView):
     def __init__(self, text=""):
-        super(ScrollableLabel, self).__init__()
+        super(ScrollableLabel, self).__init__
         self.add_widget(Label(text=text))
         label = self.children[0]
         label.text_size = self.size
 
+class ShowcaseScreen(Screen):
+    fullscreen = BooleanProperty(False)
 
-class Title(Label):
-    def setText(self, txt):
-        print("setting txt: {}".format(txt))
-        self.text = "[b]" + txt + "[/b]"
+    def add_widget(self, *args):
+        if "content" in self.ids:
+            return self.ids.content.add_widget(*args)
+        return super(ShowcaseScreen, self).add_widget(*args)
 
-# from root.kv
 class AppName(Label):
     pass
 

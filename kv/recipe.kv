@@ -1,16 +1,50 @@
 #:kivy 1.8.0
 
 # Recipe title
-<Title>:
+<TitleWidget>:
 	text: 'Unknown recipe'
 	markup: True
 	valign: 'center'
 	halign: 'center'
-	text_size: self.width, None
-	size_hint_x: 1
-	height: self.texture_size[1]
+	text_size: self.width, self.height
+#	height: self.texture_size[1]
+    size_hint_y: 0.2
 	font_size: '30dp'
 	spacing : '20dp'
+
+# Description Widget which contains a description, nb of persons, and buttons
+# to change the nb of person
+<DescriptionWidget>:
+
+    orientation: 'vertical'
+    scpacing: '4dp'
+
+    Label:
+        id: _description_title_
+        valign: 'top'
+        halign: 'left'
+        markup: True
+        text_size: None,None
+        text: "[b]Description:[b]"
+        size_hint_x: 1
+
+    Label:
+        id: _description_content_
+        text: ""
+
+    BoxLayout:
+
+        orientation: 'horizontal'
+
+        Button:
+            id: _minus_
+            text: "-"
+            height: '10px'
+
+        Button:
+            id: _plus_
+            text: "+"
+            height: '10px'
 
 #List of ingredients or instructions
 <ListWidget>:
@@ -26,7 +60,7 @@
             halign: 'left'
             markup: True
             text_size: self.width,self.height
-            text: "[b]A title/n[b]"
+            text: "[b]A title[b]"
             size_hint_y: 1
 
         Label:
@@ -48,19 +82,21 @@ RecipeWidget:
 		spacing: '10dp'
 
         # Contains a recipe title
-		Title:
+	    TitleWidget:
 			id : _title_
 		
 		BoxLayout:
 
             # A description
-			Label:
-				id: _description_
-				markup: True
-				text: '[b]Description:\n[/b]'
-				text_size: self.size
-				halign: 'left'
-				valign: 'top'
+			#Label:
+				#id: _description_
+				##markup: True
+				#text: '[b]Description:\n[/b]'
+				#text_size: self.size
+				#halign: 'left'
+				#valign: 'top'
+            DescriptionWidget:
+                id: _description_
 
             # A list of ingredients
 			ListWidget:
