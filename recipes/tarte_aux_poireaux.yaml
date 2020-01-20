@@ -1,0 +1,24 @@
+name: "Tarte aux poireaux"
+nb_persons: 4
+
+ingredients:
+  - name: pastry 
+    description: "shortcrust pastry/ pâte briséee"
+    quantity: 1
+  - name: leek
+    quantity: 2
+  - name: eggs
+    quantity: 2
+  - name: butter
+    weight: 50
+  - name: cream
+    description: "single cream"
+    volume: 250
+
+instructions:
+  - "Préchauffez le four à 180°C."
+  - "fouetter les oeufs avec la crème."
+  - "Émincer les poireaux, les laver et les saisir 10 min dans le beurre."
+  - "Aujouter au mélange crème/oeufs, saler, poiver."
+  - "Dérouler la pâte brisée dans un moule à tarte et verser la péparation."
+  - "Enfourner 40 min. Déguster chaud ou froid."

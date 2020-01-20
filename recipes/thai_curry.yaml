@@ -1,0 +1,30 @@
+name: "Thai green/red curry"
+nb_persons: 4
+
+ingredients:
+  - name: chicken 
+    description: "chicken breast"
+    weight: 600
+  - name: milk
+    description: "coconut milk"
+    volume: 250
+  - name: paste
+    description: "green/red thaï curry paste"
+  - name: onion
+    quantity: 1
+  - name: garlic
+    quantity: 1
+  - name: rice
+    weight: 300
+  - name: coriander
+  - name: chili
+    quantity: 1
+
+instructions:
+  - "Boil water and cook rice."
+  - "Cut onions and garlic and fry in olive oil."
+  - "Cut chicken in cubes and add to the onions."
+  - "Cook for 3 min and add the paste."
+  - "Add curry paste and stir for 1 min."
+  - "Add coconut milk, coriander and chilies."
+  - "Simmer until sauce has thicken."

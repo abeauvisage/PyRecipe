@@ -1,0 +1,52 @@
+#:kivy 1.8.0
+
+# Recipe title
+<Title>:
+	text: 'Unknown recipe'
+	markup: True
+	valign: 'center'
+	halign: 'center'
+	text_size: self.width, None
+	size_hint_x: 1
+	height: self.texture_size[1]
+	font_size: '30dp'
+	spacing : '20dp'
+
+#List of ingredients of instructions
+<ListWidget>:
+	Label:
+		id: _label_
+		valign: 'top'
+		halign: 'left'
+		text_size: self.width, None
+		size_hint_y: 1
+		height: self.texture_size[1]
+
+# Root widget of a recipe page
+RecipeWidget:
+
+	BoxLayout:
+
+		orientation: 'vertical'
+		id: _recipe_
+		padding: '10dp'
+		spacing: '10dp'
+		Title:
+			id : _title_
+		
+		BoxLayout:
+			Label:
+				id: _description_
+				markup: True
+				text: '[b]Description:\n[/b]'
+				text_size: self.size
+				halign: 'left'
+				valign: 'top'
+			ListWidget:
+				id: _ingredients_
+				markup: True
+				text: "[b]Ingredients\n[/b]"
+		ListWidget:
+			id: _instructions_
+			markup: True
+			text: "[b]Instructions\n[/b]"

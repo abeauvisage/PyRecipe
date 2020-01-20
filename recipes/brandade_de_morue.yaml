@@ -1,0 +1,19 @@
+name: "Brandade de Morue"
+nb_persons: 4
+
+ingredients:
+  - name: fish
+    description: "Morue salée (cod fish)"
+    weight: 900
+  - name: potatoes
+    weight: 1000
+  - name: milk
+    volume: 1000
+  - name: garlic
+    quantity: 4
+
+instructions:
+  - "Mettre la morue à dessaler 12h dans l'eau."
+  - "Faire cuire les pommes de terres et l'ail dans le lait pendant 30 min."
+  - "Egoutter puis écraser les ingrédients au presse-purée, poivrer (saler si besoin)."
+  - "préchauffer le four à 180°C et faire gratiner la brandade 20 min."

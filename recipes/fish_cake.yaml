@@ -1,0 +1,14 @@
+name: "Fish cake"
+nb_persons: 4
+
+ingredients:
+  - name: fish_cake 
+    quantity: 4
+  - name: lemon
+  - name: rice
+    weight: 300
+  - name: butter
+
+instructions:
+  - "Boil water and cook rice."
+  - "Fry fish cake in a pan."

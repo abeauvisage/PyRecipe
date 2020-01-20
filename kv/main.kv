@@ -1,0 +1,60 @@
+
+<Title>:
+	text: '[b] Welcome to PyRecipe! [/b]'
+	markup: True
+	font_size: '30dp'
+	size_hint : 1,0.2
+
+# Root widget of a MainPage 
+MainWidget:
+
+	AnchorLayout:
+	
+		anchor_x: 'center'
+		anchor_y: 'center'
+	
+		BoxLayout:
+
+			id: _main_
+			orientation: 'vertical'
+			padding: '5dp'
+			spacing: '6dp'
+			height: '500dp'
+			sie_hint: None,None
+				
+			Title:
+				id: _title_
+				
+			Label:
+				id: _message_
+				halign: 'center'
+				valign: 'center'
+				
+#			BoxLayout:
+#				orientation: 'horizontal'
+			AnchorLayout:
+				anchor_x: 'center'
+				anchor_y: 'top'
+				padding: '5dp'
+				spacing: '6dp'
+				
+#				BoxLayout:
+#					id: _space_
+				
+				Button
+					id: _mainbutton_
+					text: 'Select a recipe'
+					halign: 'center'
+					valign: 'center'
+					size_hint: None,None
+					size: '300dp','30dp'
+					
+#				BoxLayout:
+#					id: _space2_
+			
+		#Label:
+			#id: _padding_
+			#size_hint: None,None
+		
+	
+	

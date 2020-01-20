@@ -1,0 +1,65 @@
+<AppName>:
+	text: '[b] PyRecipe [/b]'
+	markup: True
+	font_size: '30dp'
+	
+<ShowcaseScreen>:
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: False if root.fullscreen else (content.height > root.height - dp(16))
+        AnchorLayout:
+            size_hint_y: None
+            height: root.height if root.fullscreen else max(root.height, content.height)
+            GridLayout:
+                id: content
+                cols: 1
+                spacing: '8dp'
+                padding: '8dp'
+                size_hint: (1, 1) if root.fullscreen else (.8, None)
+                height: self.height if root.fullscreen else self.minimum_height
+
+RootWidget:
+
+#	container: container
+	orientation: 'vertical'
+    # define background	
+	canvas.before:
+        Color:
+            rgb: .6, .6, .6
+        Rectangle:
+            size: self.size
+            source: 'rsrc/background.png'
+    # Main menu bar at the top
+    ActionBar:
+
+        ActionView:
+            id: av
+            # Return button with app logo
+            ActionPrevious:
+            	app_icon: 'rsrc/icons/logo150.png'
+                on_release: app.loadMainPage()
+                previous_image: 'rsrc/icons/previous.png'
+	
+#	BoxLayout:
+#        orientation: 'horizontal'
+#        padding: 0
+#        height: '6px'
+#        
+        # option calibrate
+#        Button:
+#	        id: _home_
+#            text: 'Home'
+#            height: '20px'
+#            on_release: app.loadMainPage()
+#
+        # bottom-left
+#        AppName:
+#	        id: _title_
+
+    # contains a ScreenManager to easily switch between pages
+	ScreenManager:
+		id: _sm_
+		
+    # create container (bottom-right)
+#    BoxLayout:
+#        id: container
