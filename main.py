@@ -30,8 +30,9 @@ class ShowcaseScreen(Screen):
 # List for ingredients, instructions,... or else!
 # replace in RecipePage.py
 class ListWidget(ScrollView):
+
     def setTitle(self, title):
-        self.text = "[b]" + title + ":\n[/b]"
+        self.ids["_list_title_"].text = "[b]" + title + ":\n[/b]"
 
     def addItem(self, item):
         self.ids["_label_"].text += "- " + item + "\n"
@@ -55,8 +56,10 @@ class RecipeWidget(Screen):
         self.ids._title_.setText(recipe.name)
         self.ids["_description_"].text += "for " + str(recipe.nb_persons) + " persons."
         print(self.ids["_description_"].valign)
+        self.ids["_ingredients_"].setTitle("Ingredients")
         for item in recipe.ingredients:
             self.ids["_ingredients_"].addItem(item["name"])
+        self.ids["_instructions_"].setTitle("Instructions")
         for item in recipe.instructions:
             self.ids["_instructions_"].addItem(item)
 

@@ -5,12 +5,12 @@ ingredients:
   - name: quinoa
     weight: 400
   - name: broccoli
-  	quantity: 2
+    quantity: 2
   - name: stock
-  	description: chicken
-  	quantity: 1
+    description: chicken
+    quantity: 1
   - name: cheese
-  	description: parmesan
+    description: parmesan
 
 instructions:
   - "Boil water and add stock."

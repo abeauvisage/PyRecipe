@@ -12,15 +12,30 @@
 	font_size: '30dp'
 	spacing : '20dp'
 
-#List of ingredients of instructions
+#List of ingredients or instructions
 <ListWidget>:
-	Label:
-		id: _label_
-		valign: 'top'
-		halign: 'left'
-		text_size: self.width, None
-		size_hint_y: 1
-		height: self.texture_size[1]
+
+    BoxLayout:
+
+        orientation: 'vertical'
+        spacing: '4dp'
+
+        Label:
+            id: _list_title_
+            valign: 'bottom'
+            halign: 'left'
+            markup: True
+            text_size: self.width,self.height
+            text: "[b]A title/n[b]"
+            size_hint_y: 1
+
+        Label:
+            id: _label_
+            valign: 'top'
+            halign: 'left'
+            text_size: self.width, None
+            size_hint_y: 1
+            height: self.texture_size[1]
 
 # Root widget of a recipe page
 RecipeWidget:
@@ -31,10 +46,14 @@ RecipeWidget:
 		id: _recipe_
 		padding: '10dp'
 		spacing: '10dp'
+
+        # Contains a recipe title
 		Title:
 			id : _title_
 		
 		BoxLayout:
+
+            # A description
 			Label:
 				id: _description_
 				markup: True
@@ -42,11 +61,15 @@ RecipeWidget:
 				text_size: self.size
 				halign: 'left'
 				valign: 'top'
+
+            # A list of ingredients
 			ListWidget:
 				id: _ingredients_
-				markup: True
-				text: "[b]Ingredients\n[/b]"
+#				markup: True
+#				text: "[b]Ingredients\n[/b]"
+
+        # A list of instructions
 		ListWidget:
 			id: _instructions_
-			markup: True
-			text: "[b]Instructions\n[/b]"
+#			markup: True
+#			text: "[b]Instructions\n[/b]"
