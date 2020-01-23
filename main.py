@@ -16,6 +16,7 @@ from kivy.uix.screenmanager import Screen
 from kivy.properties import ObjectProperty, ListProperty, BooleanProperty
 from RecipeLoader import *
 from MainPage import *
+from CreateRecipePage import *
 import Settings
 
 # from recipe.kv
@@ -92,8 +93,8 @@ class RootWidget(BoxLayout):
 
 class RecipeApp(App):
 
-    # contains two types of pages: Main and Recipe
-    screen_names = ListProperty(["main", "recipe"])
+    # contains 3 types of pages: Main, recipe and create_recipe
+    screen_names = ListProperty(["main", "recipe","create_recipe"])
 
     def get_screen(self, name):
         if name in self.screens:
@@ -131,6 +132,16 @@ class RecipeApp(App):
         screen = self.get_screen("main")
         if screen:
             self.root.ids._sm_.switch_to(screen, direction="right")
+
+    def loadCreateRecipePage(self):
+
+        screen = self.get_screen("create_recipe")
+        if not screen:
+            screen = Builder.load_file(Settings.KV_DIR + "create_recipe.kv")
+            self.screens["create_recipe"] = screen
+
+        # switch screen to CreateRecipe page
+        self.root.ids._sm_.switch_to(screen, direction="left")
 
     # load root
     def build(self):
