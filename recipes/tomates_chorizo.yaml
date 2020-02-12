@@ -1,0 +1,17 @@
+name: "Tomate Chorizo"
+nb_persons: 4
+
+ingredients:
+  - name: egg
+    quantity: 8
+  - name: tomato
+    quantity: 8
+  - name: chorizo
+    quantity: 1
+  - name: garlic
+
+instructions:
+  - "Émincer l'ail et faire revenir dans de l'huile d'olive."
+  - "Ajouter des tomates et faire revenir à feu doux pendant 10min."
+  - "Rajouter les oeufs puis le chorizo en rondelles."
+  - "Laisser cuire pendant 6-7 min."

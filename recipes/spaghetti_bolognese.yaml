@@ -7,7 +7,7 @@ ingredients:
     weight: 400
   - name: beef
     description: mince
-  	weight: 400
+    weight: 400
   - name: onion
     quantity: 1
   - name: carrot
@@ -17,7 +17,7 @@ ingredients:
   - name: garlic
   - name: sauce
     quantity: 1
-  	description: pasta sauce
+    description: pasta sauce
 
 instructions:
   - "Cut onion, garlic and carrot."

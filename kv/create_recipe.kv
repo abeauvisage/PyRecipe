@@ -1,65 +1,120 @@
-
 <CreateRecipeTitle>:
 	text: '[b] Welcome to PyRecipe! [/b]'
 	markup: True
 	font_size: '30dp'
-	height : '20dp'
+	# size: self.texture_size
+    # pos_hint:{"x":0,"y":0}
+
+<TextItem>:
+
+    BoxLayout:
+
+        orientation: 'horizontal'
+        spacing: '5dp'
+        padding: '5dp'
+        size_hint_y: None
+
+        Label:
+            id: '_label_'
+            text: "Recipe title: "
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {'center_x':0.5}
+
+        TextInput:
+            id: '_txt_input_'
+            multiline: False
+            size_hint_y: None
+            height: '30dp'
+            pos_hint: {'center_x':0.5}
+
+<ListItem>:
+
+    BoxLayout:
+
+        orientation: 'horizontal'
+        spacing: '5dp'
+        padding: '5dp'
+        size_hint_y: None
+
+        Label:
+            id: '_label_'
+            text: "Ingredients: "
+            size_hint: None, None
+            size: self.texture_size
+            valign: 'top'
+
+        Button:
+            id: '_txt_input_'
+            text: '+'
+            size_hint: None,None
+            height: '30dp'
+
+<ListItem>:
 
 # Main widget of the CreateRecipe page 
 CreateRecipeWidget:
 
     BoxLayout:
-    
+        
         orientation: 'vertical'
-		size_hint_y: None	
 
         CreateRecipeTitle:
             id: _title_
-            
-        Label:
-            id: _message1_
-            halign: 'center'
-            valign: 'center'
-            text: "message 1"
-            height: '10dp'
-            hint_size: None,None
-				
-        Label:
-            id: _message2_
-            halign: 'center'
-            valign: 'center'
-            text: "message 2"
-            height : '10dp'
-            hint_size: None,None
+            size_hint: 1, 0.2
+                
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
 
-        Label:
-            id: _message3_
-            halign: 'center'
-            valign: 'center'
-            text: "message 3"
-            height : '10dp'
-            hint_size: None,None
-				
-        Label:
-            id: _message4_
-            halign: 'center'
-            valign: 'center'
-            text: "message 4"
-            height : '10dp'
-            hint_size: None,None
-				
-        Label:
-            id: _message5_
-            halign: 'center'
-            valign: 'center'
-            text: "message 5"
-            height : '10dp'
-            hint_size: None,None
-				
-        Label:
-            id: _message6_
-            halign: 'center'
-            valign: 'center'
-            text: "message 6"
-            height : '10dp'
-            hint_size: None,None
+            BoxLayout:
+            
+                orientation: 'vertical'
+                size_hint_min_y: '200dp'
+                spacing: '5dp'
+                padding: '5dp'
+
+                TextItem:
+                    id: _ti_title_
+                    height: '50dp'
+                    # size: self.texture_size
+                        
+                ListItem:
+                    id: _ingredients_
+                    valign: 'center'
+                    height : '50dp'
+
+                Label:
+                    id: _message3_
+                    halign: 'center'
+                    valign: 'center'
+                    text: "message 3"
+                    height : '10dp'
+                    size_hint_y: None
+                    size: self.texture_size
+                        
+                Label:
+                    id: _message4_
+                    halign: 'center'
+                    valign: 'center'
+                    text: "message 4"
+                    height : '10dp'
+                    size_hint_y: None
+                    size: self.texture_size
+                        
+                Label:
+                    id: _message5_
+                    halign: 'center'
+                    valign: 'center'
+                    text: "message 5"
+                    size_hint_y: None
+                    size: self.texture_size
+                        
+                Label:
+                    id: _message6_
+                    halign: 'center'
+                    valign: 'center'
+                    text: "message 6"
+                    height : '10dp'
+                    size_hint_y: None
+                    size: self.texture_size

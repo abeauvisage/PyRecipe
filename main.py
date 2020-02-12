@@ -111,12 +111,13 @@ class RecipeApp(App):
 
         # load recipe
         recipe = loadRecipe(Settings.RECIPE_DIR + "/" + recipe_file)
+        print(recipe)
         if recipe.isValid():
             screen.setRecipe(recipe)
         else:
             screen = Screen()
             screen.add_widget(
-                ScrollableLabel(
+                Label(
                     text="Could not find {}\n in {}\n".format(
                         recipe_file, Settings.RECIPE_DIR
                     )

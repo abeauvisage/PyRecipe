@@ -8,7 +8,7 @@ ingredients:
     weight: 200
   - name: cream
     description: "creme fraiche"
-    size: 300
+    volume: 300
   - name: chives
   - name: lemon
     quantity: 1

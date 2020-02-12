@@ -12,64 +12,107 @@
 	font_size: '30dp'
 	spacing : '20dp'
 
+#Spacer
+<SpaceWidget>:
+    id: _spacer_
+    size: None,None
+
 # Description Widget which contains a description, nb of persons, and buttons
 # to change the nb of person
 <DescriptionWidget>:
 
     orientation: 'vertical'
-    scpacing: '4dp'
+    spacing: '5dp'
+#    size_hint_min_y: 0.3
 
     Label:
+        canvas.before:
+            Color:
+                rgb: .2, .5, .8
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
         id: _description_title_
         valign: 'top'
         halign: 'left'
         markup: True
-        text_size: None,None
         text: "[b]Description:[b]"
-        size_hint_x: 1
+        text_size: self.size
+        height: '20dp'
+        size_hint_y: None
 
     Label:
         id: _description_content_
         text: ""
+        valign: 'top'
+        halign: 'left'
+        text_size: self.size
+        size_hint_y: None
 
     BoxLayout:
 
         orientation: 'horizontal'
+        spacing: '100dp'
+        size_hint_y: None
 
         Button:
             id: _minus_
             text: "-"
             height: '10px'
+            size_hint_y: None
 
         Button:
             id: _plus_
             text: "+"
             height: '10px'
+            size_hint_y: None
+
+    BoxLayout:
+        id: "_spacer_"
 
 #List of ingredients or instructions
 <ListWidget>:
 
+#    do_scroll_x: True
+#    do_scroll_y: False
+    #size_hint_min_y: 0.3
+    height: '500dp'
+
     BoxLayout:
 
         orientation: 'vertical'
-        spacing: '4dp'
+        spacing: '5dp'
+        size_hint_y: None
 
         Label:
+            canvas.before:
+                Color:
+                    rgb: .8, .5, .2
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
             id: _list_title_
-            valign: 'bottom'
+            valign: 'top'
             halign: 'left'
             markup: True
-            text_size: self.width,self.height
+            text_size: self.size
             text: "[b]A title[b]"
-            size_hint_y: 1
+            size_hint_y: None
+            height: "20dp"
+#            height:self.texture_size[1]
 
         Label:
             id: _label_
             valign: 'top'
             halign: 'left'
-            text_size: self.width, None
-            size_hint_y: 1
-            height: self.texture_size[1]
+            text_size: self.size
+#            size_hint_y: None
+            height: '100dp'
+#            height: self.texture_size[1]
+
+#        BoxLayout:
+#            id: '_spacer_'
 
 # Root widget of a recipe page
 RecipeWidget:
@@ -84,17 +127,11 @@ RecipeWidget:
         # Contains a recipe title
 	    TitleWidget:
 			id : _title_
-		
-		BoxLayout:
 
-            # A description
-			#Label:
-				#id: _description_
-				##markup: True
-				#text: '[b]Description:\n[/b]'
-				#text_size: self.size
-				#halign: 'left'
-				#valign: 'top'
+        #Block containing description and list of ingredients
+		BoxLayout:
+            spacing: '10dp'
+
             DescriptionWidget:
                 id: _description_
 
