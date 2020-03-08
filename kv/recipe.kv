@@ -7,7 +7,6 @@
 	valign: 'center'
 	halign: 'center'
 	text_size: self.width, self.height
-#	height: self.texture_size[1]
     size_hint_y: 0.2
 	font_size: '30dp'
 	spacing : '20dp'
@@ -17,8 +16,8 @@
     id: _spacer_
     size: None,None
 
-# Title for lists
-<ListTitle>:
+# Title for ScrollableContent
+<ScrollableContentTitle>:
     # canvas.before:
     #     Color:
     #         rgb: .2, .5, .8
@@ -32,13 +31,13 @@
     text: "[b]List:[b]"
     text_size: self.size
 
-#List of ingredients or instructions
-<ListWidget>:
+# Class containing a title and scrollable content
+<ScrollableContent>:
 
     orientation: 'vertical'
     spacing: '5dp'
 
-    ListTitle:
+    ScrollableContentTitle:
         id: _title_
         size_hint_y: 0.2
         text: "[b]List:[b]"
@@ -52,27 +51,11 @@
             valign: 'top'
             halign: 'left'
 
-# Description Widget which contains a description, nb of persons, and buttons
-# to change the nb of person
+# ScrollableContent which contains a description of the recipe
 <DescriptionWidget>:
 
-    orientation: 'vertical'
-    spacing: '5dp'
-
-    ListTitle:
-        id: _title_
-        size_hint_y: 0.2
-        text: "[b]Description:[b]"
-
-    ScrollView:
-        Label:
-            id: _content_
-            size_hint_y: None
-            text_size: self.size
-            valign: 'top'
-            halign: 'left'
-
-
+# List of elements with scrollable content (ingredients, instruction, etc...)
+<ListWidget>:
 
 # Root widget of a recipe page
 RecipeWidget:

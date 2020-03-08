@@ -14,63 +14,15 @@ from kivy.uix.button import Button
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.screenmanager import Screen
 from kivy.properties import ObjectProperty, ListProperty, BooleanProperty
+
 from RecipeLoader import *
+from RecipePage import *
 from MainPage import *
 from CreateRecipePage import *
 import Settings
 
 # from recipe.kv
 
-class TitleWidget(Label):
-
-    def setTitle(self, txt):
-        print("setting txt: {}".format(txt))
-        self.text = "[b]" + txt + "[/b]"
-
-class ListTitle(Label):
-    pass
-
-class DescriptionWidget(BoxLayout):
-
-    def setTitle(self, title):
-        self.ids["_title_"].text = "[b]" + title + ":\n[/b]"
-
-    def setDescription(self,txt):
-        self.ids["_content_"].text = txt
-
-class ListWidget(BoxLayout):
-
-    def setTitle(self, title):
-        self.ids["_title_"].text = "[b]" + title + ":\n[/b]"
-
-    def addItem(self, item):
-        print("item: {}".format(item))
-        self.ids["_content_"].text += "- " + item + "\n"
-
-    def removeAllItems(self):
-        self.ids["_content_"].text = ""
-
-class RecipeWidget(Screen):
-
-    def cleanRecipe(self):
-        self.ids._title_.setTitle('')
-        self.ids["_description_"].setDescription("")
-        self.ids["_ingredients_"].removeAllItems()
-        self.ids["_instructions_"].removeAllItems()
-
-
-    def setRecipe(self, recipe):
-        self.cleanRecipe()
-        print('setting recipe Screen')
-        self.ids._title_.setTitle(recipe.name)
-        self.ids["_description_"].setDescription("for " +
-                                                 str(recipe.nb_persons) + "persons.")
-        self.ids["_ingredients_"].setTitle("Ingredients")
-        for item in recipe.ingredients:
-            self.ids["_ingredients_"].addItem(item["name"])
-        self.ids["_instructions_"].setTitle("Instructions")
-        for item in recipe.instructions:
-            self.ids["_instructions_"].addItem(item)
 
 # from root.kv
 
