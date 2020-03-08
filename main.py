@@ -27,21 +27,28 @@ class TitleWidget(Label):
         print("setting txt: {}".format(txt))
         self.text = "[b]" + txt + "[/b]"
 
+class ListTitle(Label):
+    pass
+
 class DescriptionWidget(BoxLayout):
 
-    def setDescription(self,txt):
-        self.ids["_description_content_"].text = txt
+    def setTitle(self, title):
+        self.ids["_title_"].text = "[b]" + title + ":\n[/b]"
 
-class ListWidget(ScrollView):
+    def setDescription(self,txt):
+        self.ids["_content_"].text = txt
+
+class ListWidget(BoxLayout):
 
     def setTitle(self, title):
-        self.ids["_list_title_"].text = "[b]" + title + ":\n[/b]"
+        self.ids["_title_"].text = "[b]" + title + ":\n[/b]"
 
     def addItem(self, item):
-        self.ids["_label_"].text += "- " + item + "\n"
+        print("item: {}".format(item))
+        self.ids["_content_"].text += "- " + item + "\n"
 
     def removeAllItems(self):
-        self.ids["_label_"].text = ""
+        self.ids["_content_"].text = ""
 
 class RecipeWidget(Screen):
 
@@ -66,14 +73,6 @@ class RecipeWidget(Screen):
             self.ids["_instructions_"].addItem(item)
 
 # from root.kv
-
-# Scrollable area to contain lists
-class ScrollableLabel(ScrollView):
-    def __init__(self, text=""):
-        super(ScrollableLabel, self).__init__
-        self.add_widget(Label(text=text))
-        label = self.children[0]
-        label.text_size = self.size
 
 class ShowcaseScreen(Screen):
     fullscreen = BooleanProperty(False)

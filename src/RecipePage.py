@@ -30,7 +30,10 @@ class Title(Label):
 		self.text = "[b]"+name+"[/b]\n"
 		self.markup = True
 		self.size_hint = (1,.2)
-		
+
+class ListTitle(Label):
+    pass
+
 class ListWidget(ScrollView):
 	def __init__(self,name,text_list=[]):
 		super(ListWidget,self).__init__()

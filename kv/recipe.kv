@@ -12,10 +12,45 @@
 	font_size: '30dp'
 	spacing : '20dp'
 
-#Spacer
+# Spacer
 <SpaceWidget>:
     id: _spacer_
     size: None,None
+
+# Title for lists
+<ListTitle>:
+    # canvas.before:
+    #     Color:
+    #         rgb: .2, .5, .8
+    #     Rectangle:
+    #         pos: self.pos
+    #         size: self.size
+
+    valign: 'top'
+    halign: 'left'
+    markup: True
+    text: "[b]List:[b]"
+    text_size: self.size
+
+#List of ingredients or instructions
+<ListWidget>:
+
+    orientation: 'vertical'
+    spacing: '5dp'
+
+    ListTitle:
+        id: _title_
+        size_hint_y: 0.2
+        text: "[b]List:[b]"
+
+    ScrollView:
+
+        Label:
+            id: _content_
+            size_hint_y: None
+            text_size: self.size
+            valign: 'top'
+            halign: 'left'
 
 # Description Widget which contains a description, nb of persons, and buttons
 # to change the nb of person
@@ -23,96 +58,21 @@
 
     orientation: 'vertical'
     spacing: '5dp'
-#    size_hint_min_y: 0.3
 
-    Label:
-        canvas.before:
-            Color:
-                rgb: .2, .5, .8
-            Rectangle:
-                pos: self.pos
-                size: self.size
-
-        id: _description_title_
-        valign: 'top'
-        halign: 'left'
-        markup: True
+    ListTitle:
+        id: _title_
+        size_hint_y: 0.2
         text: "[b]Description:[b]"
-        text_size: self.size
-        height: '20dp'
-        size_hint_y: None
 
-    Label:
-        id: _description_content_
-        text: ""
-        valign: 'top'
-        halign: 'left'
-        text_size: self.size
-        size_hint_y: None
-
-    BoxLayout:
-
-        orientation: 'horizontal'
-        spacing: '100dp'
-        size_hint_y: None
-
-        Button:
-            id: _minus_
-            text: "-"
-            height: '10px'
-            size_hint_y: None
-
-        Button:
-            id: _plus_
-            text: "+"
-            height: '10px'
-            size_hint_y: None
-
-    BoxLayout:
-        id: "_spacer_"
-
-#List of ingredients or instructions
-<ListWidget>:
-
-#    do_scroll_x: True
-#    do_scroll_y: False
-    #size_hint_min_y: 0.3
-    height: '500dp'
-
-    BoxLayout:
-
-        orientation: 'vertical'
-        spacing: '5dp'
-        size_hint_y: None
-
+    ScrollView:
         Label:
-            canvas.before:
-                Color:
-                    rgb: .8, .5, .2
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
-            id: _list_title_
+            id: _content_
+            size_hint_y: None
+            text_size: self.size
             valign: 'top'
             halign: 'left'
-            markup: True
-            text_size: self.size
-            text: "[b]A title[b]"
-            size_hint_y: None
-            height: "20dp"
-#            height:self.texture_size[1]
 
-        Label:
-            id: _label_
-            valign: 'top'
-            halign: 'left'
-            text_size: self.size
-#            size_hint_y: None
-            height: '100dp'
-#            height: self.texture_size[1]
 
-#        BoxLayout:
-#            id: '_spacer_'
 
 # Root widget of a recipe page
 RecipeWidget:
@@ -121,8 +81,8 @@ RecipeWidget:
 
 		orientation: 'vertical'
 		id: _recipe_
-		padding: '10dp'
-		spacing: '10dp'
+		padding: '5dp'
+		spacing: '5dp'
 
         # Contains a recipe title
 	    TitleWidget:
@@ -134,15 +94,29 @@ RecipeWidget:
 
             DescriptionWidget:
                 id: _description_
+    
+            ListWidget:
+                id: _ingredients_
 
-            # A list of ingredients
-			ListWidget:
-				id: _ingredients_
-#				markup: True
-#				text: "[b]Ingredients\n[/b]"
+        #block containing buttons
+        BoxLayout:
+
+            orientation: 'horizontal'
+            spacing: '100dp'
+            size_hint_y: 0.1
+
+            Button:
+                id: _minus_
+                text: "-"
+                height: '10px'
+                size_hint_y: None
+
+            Button:
+                id: _plus_
+                text: "+"
+                height: '10px'
+                size_hint_y: None
 
         # A list of instructions
 		ListWidget:
 			id: _instructions_
-#			markup: True
-#			text: "[b]Instructions\n[/b]"
