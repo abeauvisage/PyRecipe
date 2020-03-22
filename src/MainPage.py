@@ -39,7 +39,6 @@ def createMainPage(app):
         if rf.endswith(".yaml") or rf.endswith(".yml"):
             btn = Button(text=rf,size_hint_y=None,height='30dp')
             btn.bind(on_release=lambda btn: droplist.select(btn.text))
-            btn.id
             droplist.add_widget(btn)
 
     main_page.ids['_mainbutton_'].bind(on_release=droplist.open)

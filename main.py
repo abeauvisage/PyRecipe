@@ -15,7 +15,7 @@ from kivy.uix.scrollview import ScrollView
 from kivy.uix.screenmanager import Screen
 from kivy.properties import ObjectProperty, ListProperty, BooleanProperty
 
-from RecipeLoader import *
+from Recipe import *
 from RecipePage import *
 from MainPage import *
 from CreateRecipePage import *
@@ -91,6 +91,8 @@ class RecipeApp(App):
         if not screen:
             screen = Builder.load_file(Settings.KV_DIR + "create_recipe.kv")
             self.screens["create_recipe"] = screen
+
+        screen.initPage()
 
         # switch screen to CreateRecipe page
         self.root.ids._sm_.switch_to(screen, direction="left")

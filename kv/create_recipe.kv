@@ -1,56 +1,176 @@
-<CreateRecipeTitle>:
-	text: '[b] Welcome to PyRecipe! [/b]'
-	markup: True
-	font_size: '30dp'
-	# size: self.texture_size
-    # pos_hint:{"x":0,"y":0}
-
 <TextItem>:
 
-    BoxLayout:
+    orientation: 'horizontal'
+    spacing: '5dp'
+    size_hint_y: None
+    height: '45dp'
 
-        orientation: 'horizontal'
-        spacing: '5dp'
-        padding: '5dp'
+    Label:
+        canvas.before:
+            Color:
+                rgb: .2, .5, .8
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        id: _label_
+        text: "TextItem: "
+        size_hint: None, None
+        height: '30dp'
+        pos_hint: {'center_x':0.5}
+
+    TextInput:
+        id: _txt_input_
+        multiline: False
         size_hint_y: None
+        height: '30dp'
+        pos_hint: {'center_x':0.5}
 
-        Label:
-            id: '_label_'
-            text: "Recipe title: "
-            size_hint: None, None
-            size: self.texture_size
-            pos_hint: {'center_x':0.5}
-
-        TextInput:
-            id: '_txt_input_'
-            multiline: False
-            size_hint_y: None
-            height: '30dp'
-            pos_hint: {'center_x':0.5}
 
 <ListItem>:
 
-    BoxLayout:
+    orientation: 'vertical'
+    spacing: '5dp'
+    padding: '5dp'
+    size_hint_y: None
+    height: '55dp'
 
+    canvas.before:
+        Color:
+            rgb: .2, .5, .2
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        id: _layout_
         orientation: 'horizontal'
         spacing: '5dp'
         padding: '5dp'
+        height: '45dp'
         size_hint_y: None
 
         Label:
-            id: '_label_'
-            text: "Ingredients: "
+            canvas.before:
+                Color:
+                    rgb: .2, .3, .2
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            id: _label_
+            text: "ListItem: "
             size_hint: None, None
-            size: self.texture_size
-            valign: 'top'
+            height: '30dp'
+            valign: 'center'
+            pos_hint: {'center_x':0.5}
 
         Button:
-            id: '_txt_input_'
+            id: _button+_
             text: '+'
-            size_hint: None,None
+            size_hint: None, None
             height: '30dp'
 
-<ListItem>:
+<NbPersonsItem>:
+
+    orientation: 'horizontal'
+    spacing: '5dp'
+    padding: '5dp'
+    size_hint_y: None
+    height: '150dp'
+
+    Label:
+        id: _label_
+        text: "Number of persons: "
+        size_hint: None, None
+        size: self.texture_size
+        height: '20dp'
+        valign: 'top'
+
+    Label:
+        id: _count_
+        text: "[b]4 [/b]"
+        markup: True
+        size_hint: None, None
+        size: self.texture_size
+        height: '20dp'
+
+    Button:
+        id: _button-_
+        text: '-'
+        size_hint: None,None
+        height: '20dp'
+        width: '25dp'
+
+    Button:
+        id: _button+_
+        text: '+'
+        size_hint: None,None
+        height: '20dp'
+        width: '25dp'
+
+
+<IngredientItem>:
+
+    orientation: 'horizontal'
+    spacing: '5dp'
+    padding: '5dp'
+    size_hint_y: None
+    height: '45dp'
+
+    Label:
+        id: _name_
+        text: "[b]name: [/b]"
+        markup: True
+        size_hint: None, None
+        size: self.texture_size
+        height: '30dp'
+
+    Label:
+        id: _quanity_
+        text: "[b]quantity: [/b]"
+        markup: True
+        size_hint: None, None
+        size: self.texture_size
+        height: '30dp'
+
+    Label:
+        id: _unit_
+        text: "[b]unit: [/b]"
+        markup: True
+        size_hint: None, None
+        size: self.texture_size
+        height: '30dp'
+
+    Label:
+        id: _desc_
+        text: "[b]description (opt): [/b]"
+        markup: True
+        size_hint: None, None
+        size: self.texture_size
+        height: '30dp'
+
+<InstructionItem>:
+
+    orientation: 'horizontal'
+    spacing: '5dp'
+    size_hint_y: None
+    height: '40dp'
+
+    Button:
+        id: _button_
+        text: "-"
+        size_hint: None, None
+        height: '30dp'
+        width: '50dp'
+        valign: 'center'
+
+    Label:
+        id: _label_
+        size_hint: None, None
+        height: '30dp'
+        valign: 'center'
+        halign: 'left'
+
 
 # Main widget of the CreateRecipe page 
 CreateRecipeWidget:
@@ -59,7 +179,7 @@ CreateRecipeWidget:
         
         orientation: 'vertical'
 
-        CreateRecipeTitle:
+        Title:
             id: _title_
             size_hint: 1, 0.2
                 
@@ -68,53 +188,34 @@ CreateRecipeWidget:
             do_scroll_y: True
 
             BoxLayout:
-            
+                id: _main_layout_
                 orientation: 'vertical'
-                size_hint_min_y: '200dp'
+                size_hint_min_y: '300dp'
                 spacing: '5dp'
                 padding: '5dp'
 
                 TextItem:
                     id: _ti_title_
-                    height: '50dp'
-                    # size: self.texture_size
-                        
-                ListItem:
-                    id: _ingredients_
-                    valign: 'center'
-                    height : '50dp'
 
-                Label:
-                    id: _message3_
+                TextItem:
+                    id: _ti_desc_
+
+                NbPersonsItem:
+                    id: _nb_persons_
+
+                ListItem:
+                    id: _li_ingredients_
+                    valign: 'center'
+
+                ListItem:
+                    id: _li_instructions_
+                    valign: 'center'
+                    size_hint_y: None
+
+                Button:
+                    id: _create_
                     halign: 'center'
                     valign: 'center'
-                    text: "message 3"
-                    height : '10dp'
+                    text: "create"
+                    height : '50dp'
                     size_hint_y: None
-                    size: self.texture_size
-                        
-                Label:
-                    id: _message4_
-                    halign: 'center'
-                    valign: 'center'
-                    text: "message 4"
-                    height : '10dp'
-                    size_hint_y: None
-                    size: self.texture_size
-                        
-                Label:
-                    id: _message5_
-                    halign: 'center'
-                    valign: 'center'
-                    text: "message 5"
-                    size_hint_y: None
-                    size: self.texture_size
-                        
-                Label:
-                    id: _message6_
-                    halign: 'center'
-                    valign: 'center'
-                    text: "message 6"
-                    height : '10dp'
-                    size_hint_y: None
-                    size: self.texture_size
