@@ -1,10 +1,8 @@
-from kivy.uix.label import Label
-from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import Screen
-from kivy.uix.textinput import TextInput
 
 from Recipe import Recipe
+from Debug import display_debug
 
 class CreateRecipeWidget(Screen):
 
@@ -32,6 +30,7 @@ class CreateRecipeWidget(Screen):
 
 
     def initPage(self):
+        debug_data = []
         self.setPageTitle("Create recipe")
         self.ids['_ti_title_'].setDefaultLabel("Recipe title: ")
         self.ids['_ti_desc_'].setDefaultLabel("Description: ")
@@ -50,13 +49,14 @@ class CreateRecipeWidget(Screen):
         self.ids['_nb_persons_'].height = self.ids['_nb_persons_'].getHeight()
         #  self.ids['_li_ingredients_'].height = self.ids['_li_ingredients_'].getHeight()
         #  self.ids['_li_instructions_'].height = self.ids['_li_ingredients_'].getHeight()
-        print(self.ids['_nb_persons_'].getHeight())
-        print(self.ids['_ti_title_'].getHeight())
-        print(self.ids['_ti_desc_'].getHeight())
-        print(self.ids['_li_instructions_'].getHeight())
-        print(self.getHeight())
+        debug_data.append(("Height: {}", self.getHeight()))
 
         self.ids['_create_'].bind(on_press=self.create_recipe)
+        debug_data.append(("ti page: {}", self.ids['_ti_title_'].size))
+        debug_data.append(("ti texture: {}", self.ids['_ti_title_'].ids['_label_'].texture_size))
+        debug_data.append(("ti text_size: {}", self.ids['_ti_title_'].ids['_label_'].text_size))
+        debug_data.append(("ti label: {}", self.ids['_ti_title_'].ids['_label_'].size))
+        display_debug(debug_data)
 
     def getHeight(self):
         height = 0
