@@ -4,6 +4,11 @@ from kivy.uix.screenmanager import Screen
 from Recipe import Recipe
 from Debug import display_debug
 
+# TODO: creat recipe file name based on recipe name
+# TODO: possibility to add ingredient
+# TODO: add description as recipe field and save it
+
+
 class CreateRecipeWidget(Screen):
 
     def setPageTitle(self, txt):

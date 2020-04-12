@@ -1,6 +1,8 @@
 import yaml
 import os
 
+from Debug import display_debug
+
 ## Recipe class ##
 
 # Contains:
@@ -13,6 +15,7 @@ import os
 
 # Update the ingredients quantities if the nb of persons changes
 
+
 class Recipe:
 
     def __init__(self,name_="",nb_=0,ingredients_=[],instructions_=[]):
@@ -24,8 +27,10 @@ class Recipe:
     def changeNbPersons(self,nb):
         self.nb_persons = nb
 
-    def print(self):
-        print("Recipe: {} \nfor {} people.".format(self.name,self.nb_persons))
+    def __str__(self):
+        return "Recipe: {} \nfor {} people. {} ingredient(s) and {} instruction(s)." \
+            .format(self.name, self.nb_persons, len(self.ingredients),
+                    len(self.instructions))
 
     def isValid(self):
         return (self.name and self.nb_persons>0 and self.ingredients and self.instructions)
@@ -60,5 +65,5 @@ def loadRecipe(filename):
             return Recipe(recipe["name"], recipe["nb_persons"],
                           recipe["ingredients"], recipe["instructions"])
     except (FileNotFoundError, yaml.scanner.ScannerError) as e:
-        print(e)
+        display_debug((e, ""))
         return Recipe("",0,[],[])

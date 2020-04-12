@@ -19,10 +19,8 @@ from Recipe import *
 from RecipePage import *
 from MainPage import *
 from CreateRecipePage import *
+from Debug import *
 import Settings
-
-# from recipe.kv
-
 
 # from root.kv
 
@@ -62,21 +60,16 @@ class RecipeApp(App):
 
         # load recipe
         recipe = loadRecipe(Settings.RECIPE_DIR + "/" + recipe_file)
-        print(recipe)
+
         if recipe.isValid():
             screen.setRecipe(recipe)
+            # switch screen to recipe
+            self.root.ids._sm_.switch_to(screen, direction="left")
         else:
-            screen = Screen()
-            screen.add_widget(
-                Label(
-                    text="Could not find {}\n in {}\n".format(
-                        recipe_file, Settings.RECIPE_DIR
-                    )
-                )
-            )
-        # switch screen to recipe
-        self.root.ids._sm_.switch_to(screen, direction="left")
-    
+            dbg_data = (("{} not found or not valid.\n", recipe_file),
+                        ("Looking in: {} .\n", Settings.RECIPE_DIR),
+                        ("{}", recipe))
+            display_debug(dbg_data)
 
     #if main screen exist, switch to it
     def loadMainPage(self):

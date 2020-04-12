@@ -1,10 +1,7 @@
-import kivy
-
-kivy.require('1.9.1') # replace with your current kivy version !
-
 from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import Screen
+
 
 class TitleWidget(Label):
 
