@@ -1,12 +1,18 @@
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import Screen
+from kivy.uix.dropdown import DropDown
 
 from Recipe import Recipe
 from Debug import display_debug
 
 # TODO: creat recipe file name based on recipe name
-# TODO: possibility to add ingredient
+# TODO: check height for list of ingredients
 # TODO: add description as recipe field and save it
+# TODO: solve recurring getHeight()
+# TODO: init, refresh, height as inhereted class
+# TODO: solve text width
+# TODO: add check when adding an ingredient or instruction (+ name)
+# TODO: fix bug when creating new recipe from CreateRecipePage
 
 
 class CreateRecipeWidget(Screen):
@@ -37,13 +43,15 @@ class CreateRecipeWidget(Screen):
     def initPage(self):
         debug_data = []
         self.setPageTitle("Create recipe")
-        self.ids['_ti_title_'].setDefaultLabel("Recipe title: ")
-        self.ids['_ti_desc_'].setDefaultLabel("Description: ")
+        self.ids['_ti_title_'].setLabel("Recipe title: ")
+        self.ids['_ti_desc_'].setLabel("Description: ")
         self.ids['_li_ingredients_'].setDefaultText("Ingredients: ")
-        self.ids['_li_ingredients_'].header = IngredientItem()
+        self.ids['_li_ingredients_'].header = IngredientHeader()
+        self.ids['_li_ingredients_'].header.refresh()
+        self.ids['_li_ingredients_'].init()
         self.ids['_li_instructions_'].setDefaultText("Instructions: ")
         instruction_header = TextItem()
-        instruction_header.setDefaultLabel("instruction: ")
+        instruction_header.setLabel("instruction: ")
         self.ids['_li_instructions_'].header = instruction_header
         self.ids['_li_instructions_'].init()
         self.ids['_nb_persons_'].init()
@@ -74,13 +82,42 @@ class CreateRecipeWidget(Screen):
         return height
 
 
+class UnitDD(DropDown):
+    pass
+
+
+class UnitItem(BoxLayout):
+
+   def refresh(self):
+       self.dd = UnitDD()
+       btn = self.ids['_btn_']
+       btn.text = "..."
+       btn.bind(on_release=self.dd.open)
+       self.dd.bind(on_release=lambda instance, x: setattr(btn, 'text', x))
+
+
+class IngredientHeader(BoxLayout):
+
+    def refresh(self):
+        self.ids['_name_'].refresh("Name:")
+        self.ids['_quantity_'].refresh("Quantity:")
+        self.ids['_unit_'].refresh()
+        self.ids["_description_"].refresh("Description (opt):")
+
+
 class TextItem(BoxLayout):
 
-    def setDefaultLabel(self, txt):
+    def setLabel(self, txt):
         self.ids['_label_'].text = txt
+
+    def getText(self):
+        return self.ids['_txt_input_'].text
 
     def setDefaultText(self, txt):
         self.ids['_txt_input_'].text = txt
+
+    def refresh(self, txt):
+        self.setLabel(txt)
 
     def getHeight(self):
         height = self.padding[0] * 2
@@ -97,14 +134,16 @@ def remove_item(instance):
     parent_list = instance.parent.parent
     parent_item = instance.parent
     if type(parent_list) is ListItem:
-        if type(parent_item) is InstructionItem:
+        if (type(parent_item) is InstructionItem) or (type(parent_item) is
+                                                      IngredientItem):
             parent_list.remove_widget(parent_item)
         else:
-            print("item not recognised")
+            print("[remove_item] item not recognised")
     else:
-        print("instance not a list!")
+        print("[remove_item] instance not a list!")
 
     parent_list.height = parent_list.getHeight()
+
 
 def add_item(instance):
 
@@ -116,22 +155,36 @@ def add_item(instance):
             instruction.ids['_label_'].text = head.ids['_txt_input_'].text
             instruction.ids['_button_'].bind(on_press=remove_item)
             parent_list.add_widget(instruction)
-        else:
-            print("item not recognised")
+            head.ids["_txt_input_"].text = ""
+        if type(head) is IngredientHeader:
+            ingredient_it = IngredientItem()
+            ingredient = (head.ids['_name_'].getText(),
+                          head.ids['_quantity_'].getText(), "unit",
+                          head.ids['_description_'].getText())
+            ingredient_it.setIngredient(ingredient)
+            ingredient_it.ids['_button_'].bind(on_press=remove_item)
+            parent_list.add_widget(ingredient_it)
+        if not(type(head) is TextItem or type(head) is IngredientHeader):
+            print("[add_item] item not recognised")
     else:
-        print("instance not a list!")
+        print("[add_item] instance not a list!")
 
     parent_list.height = parent_list.getHeight()
+
 
 class ListItem(BoxLayout):
 
     @property
     def header(self):
-        return self.ids['_layout_'].children[0]
+        print(self.children)
+        return self.children[-2]
 
     @header.setter
     def header(self, widget):
-        self.ids['_layout_'].add_widget(widget)
+        widget.id = "_header_"
+        print("header: {}".format(widget.id))
+        self.add_widget(widget)
+        self.height = self.getHeight()
 
     def setDefaultText(self, txt):
         self.ids['_label_'].text = txt
@@ -190,13 +243,33 @@ class NbPersonsItem(BoxLayout):
 
 
 class IngredientItem(BoxLayout):
-    pass
+
+    def setIngredient(self, ingredient):
+        self.ids['_name_'].text = ingredient[0]
+        self.ids['_quan_'].text = ingredient[1]
+        self.ids['_unit_'].text = ingredient[2]
+        self.ids['_desc_'].text = ingredient[3]
+
+    def refresh(self):
+        pass
+
+    def getHeight(self):
+        height = self.padding[0] * 2
+        max_height = 0
+        for item in self.children:
+            if item.height > max_height:
+                max_height = item.height
+
+        return height + max_height
 
 
 class InstructionItem(BoxLayout):
 
-    def setLabel(self, txt):
+    def setInstruction(self, txt):
         self.ids['_label_'].text = txt
+
+    def refresh(self):
+        pass
 
     def getHeight(self):
         height = self.padding[0] * 2

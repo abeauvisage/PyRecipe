@@ -26,6 +26,78 @@
         height: '30dp'
         pos_hint: {'center_x':0.5}
 
+<UnitDD>:
+    id: _dropdown_
+    size_hint: None,None
+    height: '30dp'
+
+    Button:
+        text: 'unitless'
+        size_hint_y: None
+        height: '20dp'
+    Button:
+        text: 'piece(s)'
+        size_hint_y: None
+        height: '20dp'
+    Button:
+        text: 'gram(s)'
+        size_hint_y: None
+        height: '20dp'
+    Button:
+        text: 'liter(s)'
+        size_hint_y: None
+        height: '20dp'
+
+<UnitItem>:
+
+    orientation: 'horizontal'
+    spacing: '5dp'
+    size_hint_y: None
+    height: '45dp'
+
+    Label:
+        canvas.before:
+            Color:
+                rgb: .2, .5, .8
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        id: _label_
+        text: "Unit: "
+        size_hint: None, None
+        height: '30dp'
+        pos_hint: {'center_x':0.5}
+
+    Button:
+        id: _btn_
+        text: "..."
+        size_hint: None, None
+        height: '30dp'
+
+<IngredientHeader>:
+
+    orientation: 'vertical'
+    size_hint_y: None
+    height: '150dp'
+
+    TextItem:
+        id: _name_
+
+    BoxLayout
+        orientation: 'horizontal'
+        spacing: '5dp'
+        size_hint_y: None
+        height: '45dp'
+
+        TextItem:
+            id: _quantity_
+
+        UnitItem:
+            id: _unit_
+
+    TextItem:
+        id: _description_
 
 <ListItem>:
 
@@ -113,38 +185,41 @@
 
     orientation: 'horizontal'
     spacing: '5dp'
-    padding: '5dp'
     size_hint_y: None
     height: '45dp'
 
+    Button:
+        id: _button_
+        text: "-"
+        size_hint: None, None
+        height: '30dp'
+        width: '50dp'
+        valign: 'center'
+
     Label:
         id: _name_
-        text: "[b]name: [/b]"
-        markup: True
+        text: "name"
         size_hint: None, None
         size: self.texture_size
         height: '30dp'
 
     Label:
-        id: _quanity_
-        text: "[b]quantity: [/b]"
-        markup: True
+        id: _quan_
+        text: "quantity"
         size_hint: None, None
         size: self.texture_size
         height: '30dp'
 
     Label:
         id: _unit_
-        text: "[b]unit: [/b]"
-        markup: True
+        text: "unit"
         size_hint: None, None
         size: self.texture_size
         height: '30dp'
 
     Label:
         id: _desc_
-        text: "[b]description (opt): [/b]"
-        markup: True
+        text: "(description)"
         size_hint: None, None
         size: self.texture_size
         height: '30dp'
