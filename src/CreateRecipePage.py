@@ -14,6 +14,11 @@ from Debug import display_debug
 # TODO: add check when adding an ingredient or instruction (+ name)
 # TODO: fix bug when creating new recipe from CreateRecipePage
 
+UNIT = {
+    'piece(s)': 'quantity',
+    'gram(s)': 'weight',
+    'liter(s)': 'volume',
+}
 
 class CreateRecipeWidget(Screen):
 
@@ -22,23 +27,28 @@ class CreateRecipeWidget(Screen):
 
     def create_recipe(self, instance):
 
-        name = self.ids['_ti_title_'].ids['_txt_input_'].text
+        name = self.ids['_ti_title_'].getText()
         nb_persons = self.ids['_nb_persons_'].nb
         ingredients = []
-        instructions = []
+        for ing_item in self.ids['_li_ingredients_'].children:
+            if type(ing_item) is IngredientItem:
+                ingredient = {'name': ing_item.ids['_name_'].text}
+                if not ing_item.ids['_unit_'].text is 'unitless':
+                    ingredient[UNIT[ing_item.ids['_unit_'].text]] = \
+                        float(ing_item.ids['_quan_'].text)
+                if ing_item.ids['_desc_'].text:
+                    ingredient['description'] = ing_item.ids['_desc_'].text
+                ingredients.append(ingredient)
 
-        for instruction in self.ids['_li_instructions_'].children:
-            try:
-                print(instruction.ids['_label_'].text)
-                instructions.append(instruction.ids['_label_'].text)
-            except KeyError:
-                pass
+        instructions = []
+        for inst_item in self.ids['_li_instructions_'].children:
+            if type(inst_item) is InstructionItem:
+                instructions.append(inst_item.ids['_label_'].text)
 
         print("creating new recipe: {}".format(name))
         recipe = Recipe(name, nb_persons, ingredients, instructions)
-        recipe.save("recipes/recipe_test.yaml")
-
-
+        filename = "recipes/" + name.lower().replace(" ", "_") + ".yaml"
+        recipe.save(filename)
 
     def initPage(self):
         debug_data = []
@@ -63,12 +73,15 @@ class CreateRecipeWidget(Screen):
         #  self.ids['_li_ingredients_'].height = self.ids['_li_ingredients_'].getHeight()
         #  self.ids['_li_instructions_'].height = self.ids['_li_ingredients_'].getHeight()
         debug_data.append(("Height: {}", self.getHeight()))
+        debug_data.append(("Height: {}", self.height))
 
         self.ids['_create_'].bind(on_press=self.create_recipe)
         debug_data.append(("ti page: {}", self.ids['_ti_title_'].size))
         debug_data.append(("ti texture: {}", self.ids['_ti_title_'].ids['_label_'].texture_size))
         debug_data.append(("ti text_size: {}", self.ids['_ti_title_'].ids['_label_'].text_size))
         debug_data.append(("ti label: {}", self.ids['_ti_title_'].ids['_label_'].size))
+        self.refreshHeight()
+        debug_data.append(("ScrollView: {}", self.ids['_scrollview_'].size))
         display_debug(debug_data)
 
     def getHeight(self):
@@ -81,6 +94,15 @@ class CreateRecipeWidget(Screen):
 
         return height
 
+    def refreshHeight(self):
+        self.ids['_scrollview_'].height = 500
+        self.ids['_main_layout_'].height = self.getHeight() + 100
+
+    def saveRecipe(self):
+
+        recipe = Recipe(name, nb, ingredients, instructions)
+        recipe.save("recipes/test.yaml")
+
 
 class UnitDD(DropDown):
     pass
@@ -88,12 +110,17 @@ class UnitDD(DropDown):
 
 class UnitItem(BoxLayout):
 
-   def refresh(self):
+    def getText(self):
+        return self.ids['_btn_'].text
+
+    def refresh(self):
        self.dd = UnitDD()
        btn = self.ids['_btn_']
        btn.text = "..."
        btn.bind(on_release=self.dd.open)
-       self.dd.bind(on_release=lambda instance, x: setattr(btn, 'text', x))
+       for id_ in self.dd.ids:
+           self.dd.ids[id_].bind(on_release=lambda b: self.dd.select(b.text))
+       self.dd.bind(on_select=lambda instance, x: setattr(btn, 'text', x))
 
 
 class IngredientHeader(BoxLayout):
@@ -104,11 +131,19 @@ class IngredientHeader(BoxLayout):
         self.ids['_unit_'].refresh()
         self.ids["_description_"].refresh("Description (opt):")
 
+    def clear(self):
+        self.ids['_name_'].setDefaultText("")
+        self.ids['_quantity_'].setDefaultText("")
+        self.ids['_unit_'].ids['_btn_'].text = "..."
+        self.ids["_description_"].setDefaultText("")
+
+
 
 class TextItem(BoxLayout):
 
     def setLabel(self, txt):
         self.ids['_label_'].text = txt
+        self.ids['_label_'].width = str(8 * len(txt)) +'dp'
 
     def getText(self):
         return self.ids['_txt_input_'].text
@@ -118,6 +153,7 @@ class TextItem(BoxLayout):
 
     def refresh(self, txt):
         self.setLabel(txt)
+        self.ids['_label_'].width = str(8 * len(txt)) +'dp'
 
     def getHeight(self):
         height = self.padding[0] * 2
@@ -127,6 +163,14 @@ class TextItem(BoxLayout):
                 max_height = item.height
 
         return height + max_height
+
+
+def get_root(instance):
+    parent = instance.parent
+    while not (type(parent) is CreateRecipeWidget):
+        parent = parent.parent
+
+    return parent
 
 
 def remove_item(instance):
@@ -142,7 +186,7 @@ def remove_item(instance):
     else:
         print("[remove_item] instance not a list!")
 
-    parent_list.height = parent_list.getHeight()
+    parent_list.refreshHeight()
 
 
 def add_item(instance):
@@ -159,30 +203,30 @@ def add_item(instance):
         if type(head) is IngredientHeader:
             ingredient_it = IngredientItem()
             ingredient = (head.ids['_name_'].getText(),
-                          head.ids['_quantity_'].getText(), "unit",
+                          head.ids['_quantity_'].getText(),
+                          head.ids['_unit_'].getText(),
                           head.ids['_description_'].getText())
             ingredient_it.setIngredient(ingredient)
             ingredient_it.ids['_button_'].bind(on_press=remove_item)
             parent_list.add_widget(ingredient_it)
+            head.clear()
         if not(type(head) is TextItem or type(head) is IngredientHeader):
             print("[add_item] item not recognised")
     else:
         print("[add_item] instance not a list!")
 
-    parent_list.height = parent_list.getHeight()
+    parent_list.refreshHeight()
 
 
 class ListItem(BoxLayout):
 
     @property
     def header(self):
-        print(self.children)
         return self.children[-2]
 
     @header.setter
     def header(self, widget):
         widget.id = "_header_"
-        print("header: {}".format(widget.id))
         self.add_widget(widget)
         self.height = self.getHeight()
 
@@ -193,7 +237,8 @@ class ListItem(BoxLayout):
         self.add_widget(item)
 
     def getHeight(self):
-        height = self.padding[0] * (2*len(self.children)) + self.spacing * (len(self.children)-1)
+        height = self.padding[0] * (2*len(self.children)) \
+                 + self.spacing * (len(self.children)-1)
 
         for item in self.children:
             try:
@@ -204,6 +249,10 @@ class ListItem(BoxLayout):
                 height = height + item.height
 
         return height
+
+    def refreshHeight(self):
+        self.height = self.getHeight()
+        get_root(self).refreshHeight()
 
     def init(self):
         self.ids['_button+_'].bind(on_press=add_item)

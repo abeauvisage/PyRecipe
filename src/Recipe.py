@@ -41,11 +41,9 @@ class Recipe:
             "nb_persons": self.nb_persons
         }
         recipe_content = {
-            "ingredients": {},
+            "ingredients": self.ingredients,
             "instructions": self.instructions
         }
-
-        print(recipe_content["instructions"])
 
         with open(filename, "w") as recipe_file:
             yaml.dump(recipe_header, recipe_file, default_flow_style=False)

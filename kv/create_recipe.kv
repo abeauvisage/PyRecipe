@@ -32,18 +32,22 @@
     height: '30dp'
 
     Button:
+        id: _unitless_
         text: 'unitless'
         size_hint_y: None
         height: '20dp'
     Button:
+        id: _piece_
         text: 'piece(s)'
         size_hint_y: None
         height: '20dp'
     Button:
+        id: _gram_
         text: 'gram(s)'
         size_hint_y: None
         height: '20dp'
     Button:
+        id: _liter_
         text: 'liter(s)'
         size_hint_y: None
         height: '20dp'
@@ -259,13 +263,15 @@ CreateRecipeWidget:
             size_hint: 1, 0.2
                 
         ScrollView:
+            id: _scrollview_
             do_scroll_x: False
             do_scroll_y: True
+            size_hint_y: None
 
             BoxLayout:
                 id: _main_layout_
                 orientation: 'vertical'
-                size_hint_min_y: '300dp'
+                size_hint_y: None
                 spacing: '5dp'
                 padding: '5dp'
 
