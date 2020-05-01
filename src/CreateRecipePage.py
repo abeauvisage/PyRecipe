@@ -1,24 +1,68 @@
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import Screen
 from kivy.uix.dropdown import DropDown
+from kivy.core.window import Window
 
 from Recipe import Recipe
 from Debug import display_debug
 
-# TODO: creat recipe file name based on recipe name
-# TODO: check height for list of ingredients
 # TODO: add description as recipe field and save it
-# TODO: solve recurring getHeight()
 # TODO: init, refresh, height as inhereted class
 # TODO: solve text width
 # TODO: add check when adding an ingredient or instruction (+ name)
-# TODO: fix bug when creating new recipe from CreateRecipePage
+# TODO: set scrollview height based on action bar and title
 
 UNIT = {
     'piece(s)': 'quantity',
     'gram(s)': 'weight',
     'liter(s)': 'volume',
 }
+
+
+def get_height(self):
+    #  print(self)
+    if self.children:
+        height = 0
+        #  print(type(self))
+        if isinstance(self, BoxLayout):
+            #  print("BoxLayout")
+            height = self.padding[0] * 2
+            height = height + self.spacing * (len(self.children)-1)
+            if self.orientation == 'vertical':
+                for item in self.children:
+                    height = height + get_height(item)
+            else:
+                max_height = 0
+                for item in self.children:
+                    current_height = get_height(item)
+                    if current_height > max_height:
+                        max_height = current_height
+                height = height + max_height
+                #  print("max_height {}".format(max_height))
+        #  else:
+            #  print("Not a BoxLayout")
+        return height
+    else:
+        #  print("no children: {}".format(self.height))
+        return self.height
+
+def refresh_height(self):
+
+    if isinstance(self, BoxLayout):
+        self.height = get_height(self)
+
+    if self.children:
+        for item in self.children:
+            refresh_height(item)
+
+
+def get_root(instance):
+    parent = instance.parent
+    while not (type(parent) is CreateRecipeWidget):
+        parent = parent.parent
+
+    return parent
+
 
 class CreateRecipeWidget(Screen):
 
@@ -67,36 +111,17 @@ class CreateRecipeWidget(Screen):
         self.ids['_nb_persons_'].init()
 
 
-        self.ids['_ti_title_'].height = self.ids['_ti_title_'].getHeight()
-        self.ids['_ti_desc_'].height = self.ids['_ti_desc_'].getHeight()
-        self.ids['_nb_persons_'].height = self.ids['_nb_persons_'].getHeight()
-        #  self.ids['_li_ingredients_'].height = self.ids['_li_ingredients_'].getHeight()
-        #  self.ids['_li_instructions_'].height = self.ids['_li_ingredients_'].getHeight()
-        debug_data.append(("Height: {}", self.getHeight()))
-        debug_data.append(("Height: {}", self.height))
-
+        self.ids['_ti_title_'].height = get_height(self.ids['_ti_title_'])
+        self.ids['_ti_desc_'].height = get_height(self.ids['_ti_desc_'])
+        self.ids['_nb_persons_'].height = get_height(self.ids['_nb_persons_'])
         self.ids['_create_'].bind(on_press=self.create_recipe)
-        debug_data.append(("ti page: {}", self.ids['_ti_title_'].size))
-        debug_data.append(("ti texture: {}", self.ids['_ti_title_'].ids['_label_'].texture_size))
-        debug_data.append(("ti text_size: {}", self.ids['_ti_title_'].ids['_label_'].text_size))
-        debug_data.append(("ti label: {}", self.ids['_ti_title_'].ids['_label_'].size))
-        self.refreshHeight()
-        debug_data.append(("ScrollView: {}", self.ids['_scrollview_'].size))
-        display_debug(debug_data)
 
-    def getHeight(self):
-        height = 0
-        for item in self.ids['_main_layout_'].children:
-            try:
-                height = height + item.height
-            except TypeError:
-                pass
+        self.refresh()
 
-        return height
-
-    def refreshHeight(self):
-        self.ids['_scrollview_'].height = 500
-        self.ids['_main_layout_'].height = self.getHeight() + 100
+    def refresh(self):
+        self.ids['_scrollview_'].height = Window.height - 100
+        self.ids['_main_layout_'].height = get_height(self)
+        refresh_height(self)
 
     def saveRecipe(self):
 
@@ -155,23 +180,6 @@ class TextItem(BoxLayout):
         self.setLabel(txt)
         self.ids['_label_'].width = str(8 * len(txt)) +'dp'
 
-    def getHeight(self):
-        height = self.padding[0] * 2
-        max_height = 0
-        for item in self.children:
-            if item.height > max_height:
-                max_height = item.height
-
-        return height + max_height
-
-
-def get_root(instance):
-    parent = instance.parent
-    while not (type(parent) is CreateRecipeWidget):
-        parent = parent.parent
-
-    return parent
-
 
 def remove_item(instance):
 
@@ -186,7 +194,7 @@ def remove_item(instance):
     else:
         print("[remove_item] instance not a list!")
 
-    parent_list.refreshHeight()
+    parent_list.refresh()
 
 
 def add_item(instance):
@@ -215,7 +223,7 @@ def add_item(instance):
     else:
         print("[add_item] instance not a list!")
 
-    parent_list.refreshHeight()
+    parent_list.refresh()
 
 
 class ListItem(BoxLayout):
@@ -228,7 +236,7 @@ class ListItem(BoxLayout):
     def header(self, widget):
         widget.id = "_header_"
         self.add_widget(widget)
-        self.height = self.getHeight()
+        self.height = get_height(self)
 
     def setDefaultText(self, txt):
         self.ids['_label_'].text = txt
@@ -236,23 +244,10 @@ class ListItem(BoxLayout):
     def addItem(self, item):
         self.add_widget(item)
 
-    def getHeight(self):
-        height = self.padding[0] * (2*len(self.children)) \
-                 + self.spacing * (len(self.children)-1)
-
-        for item in self.children:
-            try:
-                height = height + item.getHeight()
-            except TypeError:
-                pass
-            except AttributeError:
-                height = height + item.height
-
-        return height
-
-    def refreshHeight(self):
-        self.height = self.getHeight()
-        get_root(self).refreshHeight()
+    def refresh(self):
+        refresh_height(self)
+        self.height = get_height(self)
+        refresh_height(get_root(self))
 
     def init(self):
         self.ids['_button+_'].bind(on_press=add_item)
@@ -302,15 +297,6 @@ class IngredientItem(BoxLayout):
     def refresh(self):
         pass
 
-    def getHeight(self):
-        height = self.padding[0] * 2
-        max_height = 0
-        for item in self.children:
-            if item.height > max_height:
-                max_height = item.height
-
-        return height + max_height
-
 
 class InstructionItem(BoxLayout):
 
@@ -319,12 +305,3 @@ class InstructionItem(BoxLayout):
 
     def refresh(self):
         pass
-
-    def getHeight(self):
-        height = self.padding[0] * 2
-        max_height = 0
-        for item in self.children:
-            if item.height > max_height:
-                max_height = item.height
-
-        return height + max_height
