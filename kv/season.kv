@@ -1,0 +1,59 @@
+# Main widget of the Season page
+SeasonWidget:
+
+    BoxLayout:
+
+        orientation: 'vertical'
+
+        Title:
+            id: _title_
+            text: "[b] Seasonal fruits and \n veggies [b]"
+            halign: "center"
+            size_hint: 1, 0.2
+
+        ScrollView:
+            id: _scrollview_
+            do_scroll_x: False
+            do_scroll_y: True
+            size_hint_y: None
+
+            BoxLayout:
+                id: _main_layout_
+                orientation: 'vertical'
+                size_hint_y: None
+                spacing: '5dp'
+                padding: '5dp'
+
+                BoxLayout:
+                    id: _fruits_n_veggies_
+                    orientation: 'horizontal'
+                    spacing: '5dp'
+                    padding: '5dp'
+                    size_hint_y: None
+
+                    Label:
+                        id: _fruits_
+                        markup: True
+                        text: "list of fruits"
+                        text_size: self.size
+                        valign: 'top'
+                        size_hint_y: None
+                        height: '300dp'
+
+                    Label:
+                        id: _vegetables_
+                        markup: True
+                        text: "list of veggies"
+                        text_size: self.size
+                        valign: 'top'
+                        size_hint_y: None
+                        height: '300dp'
+
+                Button
+                    id: _month_button_
+                    text: 'Select a month'
+                    halign: 'center'
+                    valign: 'center'
+                    size_hint_y: None
+                    size: '300dp','30dp'
+

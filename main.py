@@ -19,8 +19,12 @@ from Recipe import *
 from RecipePage import *
 from MainPage import *
 from CreateRecipePage import *
+from SeasonPage import *
 from Debug import *
 import Settings
+
+
+PAGES = ["main", "recipe", "create_recipe", "season"]
 
 # from root.kv
 
@@ -43,7 +47,7 @@ class RootWidget(BoxLayout):
 class RecipeApp(App):
 
     # contains 3 types of pages: Main, recipe and create_recipe
-    screen_names = ListProperty(["main", "recipe","create_recipe"])
+    screen_names = ListProperty(PAGES)
 
     def get_screen(self, name):
         if name in self.screens:
@@ -51,19 +55,16 @@ class RecipeApp(App):
         return False
 
     def loadRecipePage(self, instance, recipe_file):
-        # check if recipe is not already loaded
+        # check if recipe is not already loaded, load it otherwise
         screen = self.get_screen("recipe")
-        # update the corresponding recipe
         if not screen:
             screen = Builder.load_file(Settings.KV_DIR + "recipe.kv")
             self.screens["recipe"] = screen
 
-        # load recipe
         recipe = loadRecipe(Settings.RECIPE_DIR + "/" + recipe_file)
 
         if recipe.isValid():
             screen.setRecipe(recipe)
-            # switch screen to recipe
             self.root.ids._sm_.switch_to(screen, direction="left")
         else:
             dbg_data = (("{} not found or not valid.\n", recipe_file),
@@ -88,6 +89,18 @@ class RecipeApp(App):
         screen.initPage()
 
         # switch screen to CreateRecipe page
+        self.root.ids._sm_.switch_to(screen, direction="left")
+
+    def loadSeasonPage(self):
+
+        screen = self.get_screen("season")
+        if not screen:
+            screen = Builder.load_file(Settings.KV_DIR + "season.kv")
+            self.screens["season"] = screen
+
+        screen.initPage()
+
+        # switch screen to Season page
         self.root.ids._sm_.switch_to(screen, direction="left")
 
     # load root

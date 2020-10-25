@@ -1,0 +1,244 @@
+January:
+    Fruits:
+        - Oranges
+        - Grapefruit
+        - Tangerines
+        - Lemons
+        - Papaya
+        - Avocado
+
+    Vegetables:
+        - Cauliflower
+        - Cabbage
+        - Broccoli
+        - Leeks
+        - Kale
+        - Radishes
+        - Spinach
+        - Turnip
+
+February:
+    Fruits:
+        - Grapefruit
+        - Orange
+        - Papaya
+        - Lemon
+
+    Vegetables:
+        - Broccoli
+        - Cabbage
+        - Peas
+        - Celeriac
+        - Asparagus
+
+March:
+    Fruits:
+        - Strawberries
+        - Kumquat
+        - Guavas
+        - Rhubarb
+        - Tangerines
+        - Mandarins
+
+    Vegetables:
+        - Asparagus
+        - Parsnips
+        - Potatoes
+        - Spinach
+        - Onion
+        - Endive
+April:
+    Fruits:
+        - Strawberries
+        - Quince
+        - Banana
+        - Grapes
+        - Figs
+        - Watermelon
+        - Apple
+        - Blueberries
+
+    Vegetables:
+        - Artichoke
+        - Asparagus
+        - Cucumbers
+        - Broccoli
+        - Cabbage
+        - Beets
+        - Fava Beans
+        - Scallions
+
+May:
+    Fruits:
+        - Blueberries
+        - Nectarines
+        - Peaches
+        - Strawberries
+        - Melon
+        - Apricots
+        - Plums
+
+    Vegetables:
+        - Leeks
+        - Cucumber
+        - Potatoes
+        - Broccoli
+        - Spinach
+        - Collard greens
+        - Peas
+        - Okra
+
+June:
+    Fruits:
+        - Blackberries
+        - Melon
+        - Peaches
+        - Cherries
+        - Watermelon
+        - Rhubarb
+        - Plums
+        - Raspberries
+        - Nectarines
+
+    Vegetables:
+        - Cucumber
+        - Corn
+        - Green beans
+        - Beets
+        - Potatoes
+        - Summer squash
+        - Tomatoes
+July:
+
+    Fruits:
+        - Peaches
+        - Cherries
+        - Cantaloupes
+        - Melon
+        - Raspberries
+        - Watermelon
+
+    Vegetables:
+        - Sweet corn
+        - Cucumber
+        - Tomatoes
+        - Green beans
+        - Peppers
+        - Eggplant
+        - Summer Squash
+
+August:
+    Fruits:
+        - Cantaloupes
+        - Raspberries
+        - Pears
+        - Watermelons
+        - Figs
+        - Peaches
+
+    Vegetables:
+        - Eggplant
+        - Summer squash
+        - Green beans
+        - Cucumber
+        - Sweet corn
+        - Tomatoes
+
+September:
+    Fruits:
+        - Grapes
+        - Apples
+        - Pears
+        - Cherries
+        - Raspberries
+        - Kiwi
+        - Plums
+
+    Vegetables:
+        - Sweet potatoes
+        - Sweet corn
+        - Eggplant
+        - Courgette
+        - Summer squash
+        - Green beans
+        - Leeks
+        - Pumpkins
+        - Tomatoes
+        - Red Onions
+        - Pumpkins
+
+October:
+    Fruits:
+        - Apples
+        - Blackberries
+        - Cranberries
+        - Figs
+        - Grapes
+        - Dates
+        - Plums
+        - Pomegranates
+        - Pears
+        - Peaches
+
+    Vegetables:
+        - Beets
+        - Butter lettuce
+        - Cucumbers
+        - Eggplant
+        - Pumpkins
+        - Tomatoes
+        - Winter squash
+
+November:
+    Fruits:
+        - Apples
+        - Cranberries
+        - Figs
+        - Pears
+        - Clementines
+        - Quinches
+        - Persimmons
+
+    Vegetables:
+        - Celery
+        - Artichokes
+        - Cabbage
+        - Leeks
+        - Arugula
+        - Brussels Sprouts
+        - Celeriac
+        - Cauliflower
+        - Swiss Chard
+        - Watercress
+        - Winter squash
+        - Pumpkins
+
+December:
+    Fruits:
+        - Apples
+        - Cranberries
+        - Grapefruit
+        - Oranges
+        - Tangelos
+        - Tangerines
+        - Papayas
+        - Passion Fruit
+        - Pears
+        - Persimmons
+        - Pomegranates
+
+    Vegetables:
+        - Celery
+        - Fennel
+        - Leeks
+        - Radish
+        - Collard Greens
+        - Mustard Greens
+        - Cauliflower
+        - Swiss Chard
+        - Turnips
+        - Winter squash
+        - Rutabaga
+        - Spinach
+        - Sweet Potatoes
+
