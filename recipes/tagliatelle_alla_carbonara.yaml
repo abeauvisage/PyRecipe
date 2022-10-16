@@ -1,0 +1,30 @@
+name: Tagliatelle alla carbonara
+nb_persons: 4
+ingredients:
+- description: tagliatelle
+  name: pasta
+  weight: 400.0
+- name: lardons
+  weight: 400.0
+- description: creme fraiche
+  name: cream
+  volume: 0.25
+- name: onion
+  quantity: 2.0
+- name: garlic
+  quantity: 2.0
+- description: white wine
+  name: wine
+  volume: 0.4
+- name: egg
+  quantity: 4.0
+- description: parmesan
+  name: cheese
+  quantity: 1.0
+instructions:
+- Boil water and cook pasta.
+- In the meantime, fry chopped onions and garlic in olive oil.
+- Add lardons and wait for a bit. Add white wine and reduce.
+- When the sauce has reduced, add cream a wait a little more.
+- Remove from the stove, seperate the yolks from the eggs and add to the sauce.
+- Add salt, pepper, basil and/or parmesan.

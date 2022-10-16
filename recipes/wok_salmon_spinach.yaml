@@ -1,21 +1,22 @@
-name: "Wok Salmon Spinach"
+name: Wok Salmon Spinach
 nb_persons: 4
-
 ingredients:
-  - name: salmon
-    weight: 400
-  - name: spinach
-    weight: 1000
-  - name: rice
-  - name: sauce
-    description: soy
-  - name: oil
-    description: olive
-
+- name: salmon
+  weight: 400.0
+- name: spinach
+  weight: 1000.0
+- name: rice
+  weight: 400.0
+- description: soy
+  name: sauce
+  quantity: 1.0
+- description: olive
+  name: oil
+  quantity: 1.0
 instructions:
-  - "Cut salmon in dice and cook rice."
-  - "In a wok add oil and cook spinach until it diminishes."
-  - "Add black pepper and soy sauce."
-  - "Add fisk and stir so it does not stick to the pan."
-  - "Add black pepper and soy sauce again when cooked."
-  - "Add oil and fry rice."
+- Cut salmon in dice and cook rice.
+- In a wok add oil and cook spinach until it diminishes.
+- Add black pepper and soy sauce.
+- Add fisk and stir so it does not stick to the pan.
+- Add black pepper and soy sauce again when cooked.
+- Add oil and fry rice.

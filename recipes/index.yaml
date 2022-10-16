@@ -1,0 +1,62 @@
+current_counter: 21
+recipes:
+  Aubergines Feta:
+    filename: aubergines_feta.yaml
+    id: 4
+  Brandade de Morue:
+    filename: brandade_de_morue.yaml
+    id: 3
+  Broccoli Quinoa:
+    filename: broccoli_quinoa.yaml
+    id: 8
+  Choufleur Curry Pommes:
+    filename: choufleur_curry_pommes.yaml
+    id: 9
+  Fajitas:
+    filename: fajitas.yaml
+    id: 10
+  Fish cake:
+    filename: fish_cake.yaml
+    id: 16
+  Japanese Curry:
+    filename: japanese_curry.yaml
+    id: 15
+  Petits Points / Chorizo:
+    filename: pt_pois_chorizo.yaml
+    id: 17
+  Poulet miel balsamique:
+    filename: poulet_miel_balsamique.yaml
+    id: 14
+  Quesadillas:
+    filename: quesadillas.yaml
+    id: 20
+  Ratatouille:
+    filename: ratatouille.yaml
+    id: 7
+  Smoked Salmon Spaghettis:
+    filename: smoked_salmon_spaghettis.yaml
+    id: 6
+  Spaghetti bolognese:
+    filename: spaghetti_bolognese.yaml
+    id: 13
+  Stuffed Peppers:
+    filename: stuffed_peppers.yaml
+    id: 1
+  Tagliatelle alla carbonara:
+    filename: tagliatelle_alla_carbonara.yaml
+    id: 2
+  Tarte aux poireaux:
+    filename: tarte_aux_poireaux.yaml
+    id: 18
+  Thai green/red curry:
+    filename: thai_green_red_curry.yaml
+    id: 5
+  Tomate Chorizo:
+    filename: tomate_chorizo.yaml
+    id: 12
+  Tortellini:
+    filename: tortellini.yaml
+    id: 19
+  Wok Salmon Spinach:
+    filename: wok_salmon_spinach.yaml
+    id: 11

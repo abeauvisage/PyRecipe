@@ -3,11 +3,11 @@ nb_persons: 4
 
 ingredients:
   - name: pasta
-  	description: tortellini
+    description: tortellini
     weight: 400
   - name: sauce
-  	description: "tomato sauce"
-  	volume: 300 
+    description: "tomato sauce"
+    volume: 300 
   - name: basil
   
 instructions:

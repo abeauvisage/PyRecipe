@@ -5,13 +5,13 @@ ingredients:
   - name: pepper
     quantity: 1 
   - name: tuna
-  	description: can
+    description: can
     quantity: 1
   - name: cream
     description: "creme fraiche"
     volume: 100
   - name: cheese
-  	description: parmesan
+    description: parmesan
   - name: herbs
     description: "herbes de provence"
 

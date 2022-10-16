@@ -1,18 +1,17 @@
-name: "Broccoli Quinoa"
+name: Broccoli Quinoa
 nb_persons: 4
-
 ingredients:
-  - name: quinoa
-    weight: 400
-  - name: broccoli
-    quantity: 2
-  - name: stock
-    description: chicken
-    quantity: 1
-  - name: cheese
-    description: parmesan
-
+- name: quinoa
+  weight: 400.0
+- name: broccoli
+  quantity: 2.0
+- description: chicken
+  name: stock
+  quantity: 0.5
+- description: parmesan
+  name: cheese
+  quantity: 1.0
 instructions:
-  - "Boil water and add stock."
-  - "When boiling add quinoa and broccoli."
-  - "Add pepper and cheese before serving."
+- Boil water and add stock.
+- When boiling add quinoa and broccoli.
+- Add pepper and cheese before serving.

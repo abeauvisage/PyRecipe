@@ -1,0 +1,19 @@
+name: Japanese Curry
+nb_persons: 4
+ingredients:
+- name: potatoes
+  weight: 1000
+- name: carrots
+  quantity: 5
+- name: onion
+  quantity: 2
+- name: rice
+  weight: 500
+- description: japanese curry cube
+  name: curry
+  quantity: 1
+instructions:
+- Cut potatoes, carrots and onions.
+- Boil in 750 mL water, 15min from when its starts boiling.
+- Cook rice in the meantime.
+- Add the curry cubes and cook for 5 min more.

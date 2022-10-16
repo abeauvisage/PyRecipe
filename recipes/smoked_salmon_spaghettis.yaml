@@ -1,20 +1,19 @@
-name: "Smoked Salmon Spaghettis"
+name: Smoked Salmon Spaghettis
 nb_persons: 4
-
 ingredients:
-  - name: spaghetti
-    weight: 400
-  - name: salmon
-    weight: 200
-  - name: cream
-    description: "creme fraiche"
-    volume: 300
-  - name: chives
-  - name: lemon
-    quantity: 1
-
+- name: spaghetti
+  weight: 400.0
+- name: salmon
+  weight: 200.0
+- description: creme fraiche
+  name: cream
+  volume: 0.3
+- name: chives
+  quantity: 1.0
+- name: lemon
+  quantity: 1.0
 instructions:
-  - "Boil pasta and prepare sauce in the meantime."
-  - "Cut smoked salmon into pieces and chives."
-  - "When cooked, strain pasta and mix cream, salmon and chives."
-  - "Salt and pepper."
+- Boil pasta and prepare sauce in the meantime.
+- Cut smoked salmon into pieces and chives.
+- When cooked, strain pasta and mix cream, salmon and chives.
+- Salt and pepper.

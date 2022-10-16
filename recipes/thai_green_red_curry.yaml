@@ -1,0 +1,29 @@
+name: Thai green/red curry
+nb_persons: 4
+ingredients:
+- name: tofu
+  weight: 400.0
+- description: coconut milk
+  name: milk
+  volume: 250.0
+- description: "green/red tha\xEF curry paste"
+  name: paste
+  quantity: 1.0
+- name: onion
+  quantity: 1.0
+- name: garlic
+  quantity: 1.0
+- name: rice
+  weight: 400.0
+- name: coriander
+  quantity: 1.0
+- name: chili
+  quantity: 1.0
+instructions:
+- Boil water and cook rice.
+- Cut onions and garlic and fry in olive oil.
+- Cut chicken in cubes and add to the onions.
+- Cook for 3 min and add the paste.
+- Add curry paste and stir for 1 min.
+- Add coconut milk, coriander and chilies.
+- Simmer until sauce has thicken.

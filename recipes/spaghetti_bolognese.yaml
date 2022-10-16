@@ -1,25 +1,25 @@
-name: "Spaghetti bolognese"
+name: Spaghetti bolognese
 nb_persons: 4
-
 ingredients:
-  - name: pasta
-    description: spaghetti
-    weight: 400
-  - name: beef
-    description: mince
-    weight: 400
-  - name: onion
-    quantity: 1
-  - name: carrot
-    quantity: 1
-  - name: cheese
-    description: parmesan
-  - name: garlic
-  - name: sauce
-    quantity: 1
-    description: pasta sauce
-
+- description: spaghetti
+  name: pasta
+  weight: 400.0
+- description: fake meat
+  name: farce
+  weight: 400.0
+- name: onion
+  quantity: 1.0
+- name: carrot
+  quantity: 1.0
+- description: parmesan
+  name: cheese
+  quantity: 1.0
+- name: garlic
+  quantity: 1.0
+- description: tomato sauce
+  name: sauce
+  quantity: 1.0
 instructions:
-  - "Cut onion, garlic and carrot."
-  - "cook them in frying pan and boil water."
-  - "Add meat to the frying pan and pasta to the water."
+- Cut onion, garlic and carrot.
+- cook them in frying pan and boil water.
+- Add meat to the frying pan and pasta to the water.
