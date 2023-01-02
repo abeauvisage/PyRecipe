@@ -1,0 +1,76 @@
+current_counter: 47
+recipes:
+  Aubergines Feta:
+    filename: aubergines_feta.yaml
+    id: 4
+    selection: 2022-11-01
+  Brandade de Morue:
+    filename: brandade_de_morue.yaml
+    id: 3
+  Broccoli Quinoa:
+    filename: broccoli_quinoa.yaml
+    id: 8
+  'Camembert au four ':
+    filename: camembert_au_four_.yaml
+    id: 31
+  Choufleur Curry Pommes:
+    filename: choufleur_curry_pommes.yaml
+    id: 38
+  Fajitas:
+    filename: fajitas.yaml
+    id: 10
+  Fish cake:
+    filename: fish_cake.yaml
+    id: 16
+  Gnocchi Roquefort:
+    filename: gnocchi_roquefort.yaml
+    id: 37
+  Japanese Curry:
+    filename: japanese_curry.yaml
+    id: 15
+  Pasta Bolognese:
+    filename: pasta_bolognese.yaml
+    id: 26
+  Petits pois au chorizo:
+    filename: petits_pois_au_chorizo.yaml
+    id: 43
+  Poulet miel balsamique:
+    filename: poulet_miel_balsamique.yaml
+    id: 45
+  Quesadillas:
+    filename: quesadillas.yaml
+    id: 25
+  Ratatouille:
+    filename: ratatouille.yaml
+    id: 41
+  Smoked Salmon Spaghettis:
+    filename: smoked_salmon_spaghettis.yaml
+    id: 6
+  Stuffed Peppers:
+    filename: stuffed_peppers.yaml
+    id: 21
+  Tagliatelle alla carbonara:
+    filename: tagliatelle_alla_carbonara.yaml
+    id: 2
+  Tarte aux poireaux:
+    filename: tarte_aux_poireaux.yaml
+    id: 18
+    selection: 2022-11-07
+  Thai green/red curry:
+    filename: thai_green_red_curry.yaml
+    id: 46
+  Tomate Chorizo:
+    filename: tomate_chorizo.yaml
+    id: 12
+  Tortellini:
+    filename: tortellini.yaml
+    id: 34
+  Wok Salmon Spinach:
+    filename: wok_salmon_spinach.yaml
+    id: 33
+  'croques monsieur ':
+    filename: croques_monsieur_.yaml
+    id: 28
+  halloumi kebab:
+    filename: halloumi_kebab.yaml
+    id: 30

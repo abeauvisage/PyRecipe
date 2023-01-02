@@ -1,0 +1,32 @@
+- potato: 2250.0g
+- carrot: x 5
+- onion: x 4
+- rice: 500g
+- curry (japanese curry cube): x 1
+- quesadillas: x 8
+- pepper: x 4
+- haricot (noir): 200.0g
+- cheddar: 400.0g
+- chili (fort): x 1
+- chili (doux): x 2
+- coriander: x 1
+- lime: x 1
+- tomato (conserve): x 2
+- aubergine: x 5
+- coulis de tomate: 0.2L
+- feta: 200g
+- thym: x 1
+- oil (huile d'olive ): x 2
+- apples: x 4
+- butter: 250.0g
+- garlic: x 11
+- courgette: x 2
+- tomato: x 4
+- oil (olive): 6.0tbs
+- bouquet garnis: x 1
+- fish (Morue salée (cod fish)): 900.0g
+- milk: 1.0L
+- pain de mie (tranches): x 16
+- mozzarella (boules): x 2
+- pesto: x 1
+- pepper (en boite): x 2

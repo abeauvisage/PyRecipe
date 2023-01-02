@@ -1,0 +1,24 @@
+name: halloumi kebab
+nb_persons: 4
+ingredients:
+- name: frites
+  weight: 600.0
+- name: 'oignon rouge '
+  quantity: 1.0
+- name: mushrooms
+  weight: 400.0
+- name: garlic
+  quantity: 1.0
+- name: kebab spices
+  quantity: 1.0
+- name: halloumi
+  weight: 200.0
+- name: lemon
+  quantity: 1.0
+- name: oil
+  spoon: 2.0
+instructions:
+- 'cook fries in the oven as instructed '
+- cut the opinions and marinate in the lemon juice, oil, salt and pepper
+- 'slice the mushroom and garlic. fry in a pan for 8min and press with bottom of a
+  pan to make it crispy '

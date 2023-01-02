@@ -29,7 +29,7 @@ def createMainPage(app):
     # load main page
     main_page = Builder.load_file(Settings.KV_DIR+'main.kv')
     # update message with recipe files
-    main_page.ids['_message_'].text = "Looking for recipes in {}".format(current_dir+"/"+Settings.RECIPE_DIR)
+    main_page.ids['_message_'].text = "Looking for recipes in \n {}".format(current_dir+"/"+Settings.RECIPE_DIR)
 
     # add each recipe file to the droplist and bind it so it is selected when
     # released

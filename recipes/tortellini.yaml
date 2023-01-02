@@ -1,14 +1,9 @@
-name: "Tortellini"
+name: Tortellini
 nb_persons: 4
-
 ingredients:
-  - name: pasta
-    description: tortellini
-    weight: 400
-  - name: sauce
-    description: "tomato sauce"
-    volume: 300 
-  - name: basil
-  
+- name: tomato sauce
+  volume: 0.3
+- name: basil
+  quantity: 1.0
 instructions:
-  - "Boil water and tortellini until it starts to float."
+- ''

@@ -1,0 +1,7 @@
+name: test
+nb_persons: 4
+ingredients:
+- name: gdzfs
+  quantity: 1.0
+instructions:
+- ''

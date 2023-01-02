@@ -1,0 +1,17 @@
+name: 'Camembert au four '
+nb_persons: 2
+ingredients:
+- name: 'pommes de terre '
+  weight: 250.0
+- name: pommes
+  quantity: 4.0
+- name: beurre
+  weight: 50.0
+- name: ail
+  quantity: 1.0
+instructions:
+- "\xE9craser l'ail et le frotter sur le camembert. entourer de papier alu"
+- "\xE9plucher les pommes de terre et les faire cuire \xE0 la vapeur."
+- "\xE9plucher les pommes et d\xE9couper en fines rondelles."
+- recouvrir les pommes de tranches de beurre.
+- enfourner les pommes et le camembert pendant 10-15 min.

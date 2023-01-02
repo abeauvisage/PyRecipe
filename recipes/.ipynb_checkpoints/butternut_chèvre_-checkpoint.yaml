@@ -1,0 +1,23 @@
+name: "Butternut ch\xE8vre "
+nb_persons: 4
+ingredients:
+- name: 'ail '
+  quantity: 2.0
+- name: 'butternut '
+  quantity: 2.0
+- description: 'branches '
+  name: 'thyme '
+  quantity: 2.0
+- description: crotins
+  name: "ch\xE8vre "
+  quantity: 2.0
+- description: "cr\xE8me fra\xEEche "
+  name: cream
+  volume: 0.3
+instructions:
+- "Pr\xE9chauffer le four \xE0 180\xB0C (thermostat 6)."
+- "Couper la courge en 2 et l'\xE9vider (creuser de sorte \xE0 former 2 petites cavit\xE9\s). "
+- 'Couper le crottin en morceaux. '
+- "\xC9plucher et hacher finement les gousses d'ail. "
+- "Verser la pr\xE9paration dans les cavit\xE9s de la courge"
+- "D\xE9poser les 2 moiti\xE9s de courge sur une plaque recouverte de papier cuisson\ et enfourner 1h."

@@ -1,9 +1,27 @@
-name: "Ratatouille"
+name: Ratatouille
 nb_persons: 4
-
 ingredients:
-  - name: ingredient 
-    quantity: 1
-
+- name: courgette
+  quantity: 2.0
+- name: oignon
+  quantity: 2.0
+- name: tomates
+  quantity: 4.0
+- name: aubergine
+  quantity: 1.0
+- name: ail
+  quantity: 6.0
+- description: olive
+  name: huile
+  spoon: 6.0
+- name: bouquet garnis
+  quantity: 1.0
+- name: poivrons
+  quantity: 2.0
 instructions:
-  - ""
+- Dans une cocotte, faire saisir l'ognion et l'ail avec l'huile d'olive.
+- Ajouter les courgettes, aubergines, poivrons coupes en cube.
+- Laisser roussir en  remuant 10min puis ajouter les tomates en morceaux et les bouquets
+  garnis
+- Verser 1 verre d'eau, couvrer et laisser cuire 45min a feu doux en remuant.
+- Saler, poivrer et deguster

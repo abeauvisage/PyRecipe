@@ -1,9 +1,15 @@
-name: "Fajitas"
+name: Fajitas
 nb_persons: 4
-
 ingredients:
-  - name: ingredient 
-    quantity: 1
-
+- description: medium
+  name: tortillas
+  quantity: 8.0
+- name: poivron
+  quantity: 4.0
+- description: noirs
+  name: haricots
+  quantity: 1.0
+- name: avocat
+  quantity: 2.0
 instructions:
-  - ""
+- ''

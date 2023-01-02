@@ -1,0 +1,28 @@
+name: chili sin carne
+nb_persons: 4
+ingredients:
+- name: poivron
+  quantity: 2.0
+- description: conserve
+  name: tomate
+  quantity: 1.0
+- name: Coriandre
+  quantity: 1.0
+- description: doux
+  name: piment
+  quantity: 2.0
+- name: chili
+  quantity: 1.0
+- description: noires
+  name: haricots
+  weight: 200.0
+- name: onion
+  quantity: 1.0
+- name: ail
+  quantity: 2.0
+- name: cumin
+  spoon: 2.0
+- name: oregon
+  spoon: 1.0
+instructions:
+- ''

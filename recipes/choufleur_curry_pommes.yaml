@@ -1,9 +1,13 @@
-name: "Choufleur Curry Pommes"
+name: Choufleur Curry Pommes
 nb_persons: 4
-
 ingredients:
-  - name: ingredient 
-    quantity: 1
-
+- name: pommes
+  quantity: 2.0
+- name: chou-fleur
+  quantity: 1.0
+- name: oignon
+  quantity: 1.0
+- name: curry
+  spoon: 1.0
 instructions:
-  - ""
+- ''

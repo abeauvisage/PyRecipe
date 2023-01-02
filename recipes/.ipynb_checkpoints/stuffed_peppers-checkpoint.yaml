@@ -1,0 +1,24 @@
+name: "Stuffed Peppers"
+nb_persons: 4
+
+ingredients:
+  - name: pepper
+    quantity: 1 
+  - name: tuna
+    description: can
+    quantity: 1
+  - name: cream
+    description: "creme fraiche"
+    volume: 100
+  - name: cheese
+    description: parmesan
+  - name: herbs
+    description: "herbes de provence"
+
+instructions:
+  - "Pe-heat oven at 180°C."
+  - "Cut peppers in half, remove seeds and clean."
+  - "Mix tuna, cream, cheese and herbs together."
+  - "Salt and pepper."
+  - "Add preparation to the peppers and put in the oven."
+  - "Cook for 30 min."

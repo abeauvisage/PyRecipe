@@ -1,0 +1,15 @@
+name: Petits pois au chorizo
+nb_persons: 4
+ingredients:
+- name: oignon
+  quantity: 1.0
+- name: chorizo
+  quantity: 1.0
+- name: petits pois
+  weight: 1000.0
+- name: parmesan
+  quantity: 1.0
+instructions:
+- Faire revenior a vif le chorizo puis l'oignon.
+- Ajouter les petits pois avec un demi verre d'eau.
+- Cuire pendant 6/7 min puis ajouter du parmesan rape.

@@ -1,0 +1,222 @@
+Roquefort: {}
+apples:
+  alternatives:
+  - pommes
+  season:
+  - 9
+  - 10
+  - 11
+  - 12
+aubergine:
+  alternatives:
+  - eggplant
+  - aubergines
+  season:
+  - 7
+  - 8
+  - 9
+  - 10
+avocado:
+  alternatives:
+  - avocat
+basil:
+  alternatives:
+  - basilic
+  - basilique
+bouquet garnis:
+  alternatives:
+  - bouquet-garnis
+broccoli:
+  alternatives:
+  - brocoli
+  - brocolli
+  season:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+butter:
+  alternatives:
+  - beurre
+camembert: {}
+carrot:
+  alternatives:
+  - carrotte
+  - carrottes
+cauliflower:
+  alternatives:
+  - chou-fleur
+  - choufleur
+  - chou fleur
+  season:
+  - 1
+  - 11
+  - 12
+cheddar: {}
+cheese:
+  alternatives:
+  - fromage
+chicken:
+  alternatives:
+  - poulet
+chili:
+  alternatives:
+  - piment
+chives:
+  alternatives:
+  - ciboule
+  - green onion
+  - ciboulette
+chorizo: {}
+coriander:
+  alternatives:
+  - coriandre
+coulis de tomate: {}
+courgette:
+  season:
+  - 6
+  - 7
+  - 8
+  - 9
+cream:
+  alternatives:
+  - creme
+curry: {}
+egg:
+  alternatives:
+  - oeuf
+farce: {}
+feta: {}
+fish: {}
+fish_cake: {}
+fries:
+  alternatives:
+  - frites
+garlic:
+  alternatives:
+  - ail
+gnocchi: {}
+halloumi: {}
+haricot:
+  alternatives:
+  - bean
+  - black bean
+  - red bean
+herbs:
+  alternatives:
+  - herbes
+  - herbes de provence
+honey:
+  alternatives:
+  - miel
+kebab spices: {}
+lardons:
+  alternatives:
+  - penceta
+leek:
+  alternatives:
+  - poireau
+  season:
+  - 1
+  - 9
+  - 10
+  - 11
+  - 12
+lemon:
+  alternatives:
+  - citron
+  season:
+  - 0
+  - 1
+lime:
+  alternatives:
+  - citron vert
+  - citron
+milk:
+  alternatives:
+  - lait
+mozzarella: {}
+mushroom:
+  alternatives:
+  - champignons
+oil:
+  alternatives:
+  - huile
+  - olja
+onion:
+  alternatives:
+  - oignon
+  - oignon rouge
+  - red onion
+pain de mie: {}
+parmesan: {}
+pasta:
+  alternatives:
+  - pates
+  - spaghetti
+  - tagliatelle
+pastry:
+  alternatives:
+  - pate
+pepper:
+  alternatives:
+  - poivron
+pesto: {}
+petits pois:
+  alternatives:
+  - petits-pois
+  - peas
+potato:
+  alternatives:
+  - patate
+  - patates
+  - pommes de terre
+quesadillas:
+  alternatives:
+  - quesadilas
+quinoa: {}
+ravioli:
+  alternatives:
+  - tortellini
+  - totelini
+rice:
+  alternatives:
+  - ris
+salmon:
+  alternatives:
+  - saumon
+  - lax
+soy sauce:
+  alternatives:
+  - sauce soja
+spinach:
+  alternatives:
+  - epinards
+stock:
+  alternatives:
+  - boullion
+thym: {}
+tofu: {}
+tomato:
+  alternatives:
+  - tomate
+  - tomates
+  season:
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+tomato sauce:
+  alternatives:
+  - sauce tomate
+  - sauce de tomate
+tortillas: {}
+tuna: {}
+vinegar:
+  alternatives:
+  - vinaigre
+wine:
+  alternatives:
+  - vin

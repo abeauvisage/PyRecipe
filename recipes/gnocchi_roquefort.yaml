@@ -1,0 +1,13 @@
+name: Gnocchi Roquefort
+nb_persons: 4
+ingredients:
+- name: Roquefort
+  quantity: 1.0
+- name: Gnocchi
+  weight: 1000.0
+- description: fraiche
+  name: cream
+  volume: 0.25
+instructions:
+- Boil gnocchis in water.
+- Melt Rocquefort and cream together in a saucepan.

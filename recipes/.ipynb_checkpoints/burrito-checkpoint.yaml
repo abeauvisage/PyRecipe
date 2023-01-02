@@ -1,0 +1,17 @@
+name: Burrito
+nb_persons: 4
+ingredients:
+- name: tortillas
+  quantity: 8.0
+- name: poivron
+  quantity: 1.0
+- name: piment
+  quantity: 1.0
+- name: riz
+  weight: 400.0
+- name: oignon
+  quantity: 1.0
+- name: tomates
+  quantity: 2.0
+instructions:
+- ''

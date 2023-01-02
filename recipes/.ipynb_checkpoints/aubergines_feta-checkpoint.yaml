@@ -1,0 +1,21 @@
+name: Aubergines Feta
+nb_persons: 4
+ingredients:
+- name: Aubergines
+  quantity: 4
+- name: Coulis de tomate
+  volume: 0.2
+- name: Feta
+  weight: 200
+- name: Thym
+  quantity: 1
+- description: 'huile d''olive '
+  name: huile
+  quantity: 2
+instructions:
+- "pr\xE9chauffer le four \xE0 170\xB0"
+- "Coupez les aubergines en 2. Les \xE9vider."
+- "Couper la chaire en petits d\xE9s et m\xE9langer avec le coulis, le thym et la\
+  \ feta."
+- "farcir les aubergines, placer dans un plat \xE0 gratin, arroser d'huile d'olive\
+  \ et enfourner 1h."

@@ -1,0 +1,9 @@
+name: "Fajitas"
+nb_persons: 4
+
+ingredients:
+  - name: ingredient 
+    quantity: 1
+
+instructions:
+  - ""

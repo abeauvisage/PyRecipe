@@ -1,9 +1,27 @@
-name: "Quesadillas"
+name: Quesadillas
 nb_persons: 4
-
 ingredients:
-  - name: ingredient 
-    quantity: 1
-
+- name: 'quesadillas '
+  quantity: 8.0
+- name: 'poivron '
+  quantity: 2.0
+- description: noir
+  name: haricots
+  weight: 200.0
+- name: 'cheddar '
+  weight: 400.0
+- description: fort
+  name: chili
+  quantity: 1.0
+- description: doux
+  name: chili
+  quantity: 2.0
+- name: coriandre
+  quantity: 1.0
+- name: lime
+  quantity: 1.0
+- description: conserve
+  name: tomate
+  quantity: 2.0
 instructions:
-  - ""
+- ''

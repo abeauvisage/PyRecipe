@@ -2,11 +2,13 @@ import copy
 import math
 import os
 import yaml
+from datetime import date
 
 from src.Settings import RECIPE_DIR
 
 UNITS = {
     "quantity": ["x"],
+    "spoon": ["tbs", "tsp"],
     "weight": ["g", "kg", "mg"],
     "volume": ["L", "dL", "cL", "mL"],
 }
@@ -70,7 +72,7 @@ class Recipe:
             for k in ingredient.keys():
                 if k in UNITS.keys():
                     ingredient[k] = original_ingredient[k] * self.requested_nb_persons / self.nb_persons
-                    if k == "quantity":
+                    if k == "quantity" or k == "spoon":
                         ingredient[k] = math.ceil(ingredient[k])
             
 
@@ -131,6 +133,19 @@ class Recipe:
         print(self.list_ingredients())
         print("Instructions:")
         print(self.list_instructions())
+        
+    def compute_seasonal_score(self):
+        score = 0
+        with open(os.path.join(os.getcwd(), "rsrc", "ingredients.yaml"), 'r') as ingf:
+            ingredients_ref = yaml.load(ingf, Loader=yaml.FullLoader)
+            for ingredient_recipe in self.ingredients:
+                general_name = get_general_ingredient_name(ingredient_recipe["name"], ingredients_ref)
+                if ingredients_ref[general_name].get("season"):
+                    if date.today().month in ingredients_ref[general_name]["season"]:
+                        score += 0.75
+                    else:
+                        score += -1.0
+        return score
 
 # Helper functions
 
@@ -149,13 +164,24 @@ def clean_index(recipe_index, id):
 
 def update_index(recipe_name, recipe_filename, id):
     recipe_index = get_full_recipe_index()
+    print("recipe index", recipe_index, id)
     if id is not None and id < recipe_index["current_counter"]:
+        print("cleaning")
         clean_index(recipe_index, id)
         recipe_index["recipes"][recipe_name] = {"id": id, "filename": recipe_filename}
     else:
+        print("adding", recipe_name)
         recipe_index["recipes"][recipe_name] = {"id": recipe_index["current_counter"], "filename": recipe_filename}
         recipe_index["current_counter"] += 1
+        
+    with open(RECIPE_INDEX_FILE, "w") as rif:
+        yaml.dump(recipe_index, rif, default_flow_style=False)
+        
 
+def update_selection(recipe_name):
+    recipe_index = get_full_recipe_index()
+    recipe_index["recipes"][recipe_name].update({"selection": date.today()})
+    
     with open(RECIPE_INDEX_FILE, "w") as rif:
         yaml.dump(recipe_index, rif, default_flow_style=False)
         
@@ -176,3 +202,27 @@ def generate_index():
             print(recipe_file)
             recipe = Recipe.load(recipe_file)
             update_index(recipe.name, recipe_file, None)
+            
+            
+def format_ingredient_name(ingredient_name):
+    ingredient_name = ingredient_name.lower()
+    ingredient_name = ingredient_name.replace(" ", "")
+    
+    if ingredient_name.endswith("ies"):
+        ingredient_name = ingredient_name[:-3] + "y"
+    if ingredient_name.endswith("es"):
+        ingredient_name = ingredient_name[:-2]
+    if ingredient_name.endswith("s"):
+        ingredient_name = ingredient_name[:-1]
+        
+    return ingredient_name
+
+def get_general_ingredient_name(name, ingredient_dict):
+    for ingredient_name, ingredient_obj in ingredient_dict.items():
+        possible_names = [format_ingredient_name(ingredient_name)]
+        for ingredient_alt in ingredient_obj.get("alternatives", []):
+            possible_names.append(format_ingredient_name(ingredient_alt))
+        if format_ingredient_name(name) in possible_names:
+            return ingredient_name
+    
+    raise Exception(f"Ingredient '{name}' not known. Please add it. {possible_names}")

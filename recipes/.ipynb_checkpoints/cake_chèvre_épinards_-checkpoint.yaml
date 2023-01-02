@@ -1,0 +1,23 @@
+name: "Cake ch\xE8vre \xE9pinards "
+nb_persons: 4
+ingredients:
+- name: oeuf
+  quantity: 6.0
+- name: farine
+  weight: 300.0
+- name: "\xE9pinards "
+  weight: 200.0
+- description: "b\xFBche "
+  name: "ch\xE8vre "
+  quantity: 1.0
+- description: olive
+  name: huile
+  spoon: 3.0
+- name: levure
+  weight: 10.0
+instructions:
+- "Pr\xE9chauffer le four \xE0 180\xB0C"
+- 'fouetter les oeufs avec la farine, la levure et l''huile d''olive '
+- "Ajouter les pousses d'\xE9pinards et le ch\xE8vre coup\xE9 en morceaux "
+- 'Saler et poivrer '
+- "verser dans un moule \xE0 cake et enfourner 45min"

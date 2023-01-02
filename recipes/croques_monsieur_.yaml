@@ -1,0 +1,20 @@
+name: 'croques monsieur '
+nb_persons: 4
+ingredients:
+- description: tranches
+  name: pain de mie
+  quantity: 16.0
+- description: boules
+  name: 'mozzarella '
+  quantity: 2.0
+- name: pesto
+  quantity: 1.0
+- description: en boite
+  name: 'poivrons '
+  quantity: 2.0
+- name: beurre
+  weight: 200.0
+instructions:
+- " Beurrer les tranches de pain de mie d'un c\xF4t\xE9 et tartiner de pesto de l'autre "
+- ajouter quelques tranches de mozzarella et de poivrons
+- 'refermer et faire griller '

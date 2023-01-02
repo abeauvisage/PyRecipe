@@ -1,9 +1,17 @@
-name: "Poulet miel balsamique"
+name: Poulet miel balsamique
 nb_persons: 4
-
 ingredients:
-  - name: ingredient 
-    quantity: 1
-
+- name: poulet
+  weight: 500.0
+- name: beurre
+  weight: 20.0
+- name: miel
+  spoon: 4.0
+- description: creme fraiche
+  name: cream
+  volume: 0.2
+- description: balsamique
+  name: vinaigre
+  spoon: 6.0
 instructions:
-  - ""
+- ''

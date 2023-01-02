@@ -1,0 +1,27 @@
+name: Pasta Bolognese
+nb_persons: 4
+ingredients:
+- description: small
+  name: carrots
+  quantity: 2.0
+- name: 'onion '
+  quantity: 1.0
+- name: garlic
+  quantity: 1.0
+- description: 'vegetarian '
+  name: farce
+  weight: 200.0
+- name: tomato sauce
+  volume: 0.4
+- name: 'parmesan '
+  quantity: 1.0
+- description: 'spaghetti '
+  name: pasta
+  weight: 400.0
+instructions:
+- cut garlic and onion in small bits and cook in a pan
+- Cut the carrots also in small parts and add them to the onions
+- when  cooked, add the tomato sauce and farce
+- Let it simmer for a few minutes
+- 'boil the pasta in the meantime '
+- serve with grated parmesan on top and a few fresh basil leaves
