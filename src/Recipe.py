@@ -193,14 +193,16 @@ def get_ingredient_unit(ingredient):
     
         
 def generate_index():
+    # generate an empty index
     index = {"current_counter": 1, "recipes": {}}
     with open(RECIPE_INDEX_FILE, "w") as rif:
         yaml.dump(index, rif, default_flow_style=False)
-        
+
+    # update index with every recipe found in the recipe directory
     for recipe_file in os.listdir(os.path.join(os.getcwd(),RECIPE_DIR)):
         if recipe_file.endswith("yaml") and not recipe_file.startswith("index"):
-            print(recipe_file)
             recipe = Recipe.load(recipe_file)
+            print(recipe.name, recipe_file)
             update_index(recipe.name, recipe_file, None)
             
             

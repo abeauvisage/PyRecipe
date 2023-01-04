@@ -1,0 +1,89 @@
+current_counter: 30
+recipes:
+  Aubergines Feta:
+    filename: aubergines_feta.yaml
+    id: 20
+  Brandade de Morue:
+    filename: brandade_de_morue.yaml
+    id: 14
+  Broccoli Quinoa:
+    filename: broccoli_quinoa.yaml
+    id: 7
+  Burrito:
+    filename: burrito.yaml
+    id: 8
+  "Butternut ch\xE8vre ":
+    filename: butternut_chevre.yaml
+    id: 25
+  "Cake ch\xE8vre \xE9pinards ":
+    filename: cake_chevre_epinards.yaml
+    id: 1
+  'Camembert au four ':
+    filename: camembert_au_four_.yaml
+    id: 27
+  Choufleur Curry Pommes:
+    filename: choufleur_curry_pommes.yaml
+    id: 10
+  Fajitas:
+    filename: fajitas.yaml
+    id: 23
+  Fish cake:
+    filename: fish_cake.yaml
+    id: 3
+  Gnocchi Roquefort:
+    filename: gnocchi_roquefort.yaml
+    id: 12
+  Japanese Curry:
+    filename: japanese_curry.yaml
+    id: 11
+  Pasta Bolognese:
+    filename: pasta_bolognese.yaml
+    id: 28
+  Petits pois au chorizo:
+    filename: petits_pois_au_chorizo.yaml
+    id: 26
+  Poulet miel balsamique:
+    filename: poulet_miel_balsamique.yaml
+    id: 2
+  Quesadillas:
+    filename: quesadillas.yaml
+    id: 17
+  Ratatouille:
+    filename: ratatouille.yaml
+    id: 5
+  Smoked Salmon Spaghettis:
+    filename: smoked_salmon_spaghettis.yaml
+    id: 4
+  Stuffed Peppers:
+    filename: stuffed_peppers.yaml
+    id: 15
+  Tagliatelle alla carbonara:
+    filename: tagliatelle_alla_carbonara.yaml
+    id: 13
+  Tarte aux poireaux:
+    filename: tarte_aux_poireaux.yaml
+    id: 21
+  Thai green/red curry:
+    filename: thai_green_red_curry.yaml
+    id: 19
+  Tomate Chorizo:
+    filename: tomate_chorizo.yaml
+    id: 29
+  Tortellini:
+    filename: tortellini.yaml
+    id: 6
+  Wok Salmon Spinach:
+    filename: wok_salmon_spinach.yaml
+    id: 22
+  chili sin carne:
+    filename: chili_sin_carne.yaml
+    id: 16
+  'croques monsieur ':
+    filename: croques_monsieur_.yaml
+    id: 9
+  halloumi kebab:
+    filename: halloumi_kebab.yaml
+    id: 24
+  test:
+    filename: test.yaml
+    id: 18

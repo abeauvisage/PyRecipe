@@ -57,6 +57,9 @@ cheddar: {}
 cheese:
   alternatives:
   - fromage
+chevre:
+  alternatives:
+  - "ch\xE8vre"
 chicken:
   alternatives:
   - poulet
@@ -82,6 +85,7 @@ courgette:
 cream:
   alternatives:
   - creme
+cumin: {}
 curry: {}
 egg:
   alternatives:
@@ -149,6 +153,9 @@ onion:
   - oignon
   - oignon rouge
   - red onion
+oregano:
+  alternatives:
+  - oregon
 pain de mie: {}
 parmesan: {}
 pasta:
@@ -182,6 +189,7 @@ ravioli:
   - totelini
 rice:
   alternatives:
+  - riz
   - ris
 salmon:
   alternatives:
@@ -192,7 +200,7 @@ soy sauce:
   - sauce soja
 spinach:
   alternatives:
-  - epinards
+  - "\xE9pinard"
 stock:
   alternatives:
   - boullion
@@ -217,6 +225,13 @@ tuna: {}
 vinegar:
   alternatives:
   - vinaigre
+wheat:
+  alternatives:
+  - farine
+  - "mj\xF6l"
 wine:
   alternatives:
   - vin
+yeast:
+  alternatives:
+  - levure
