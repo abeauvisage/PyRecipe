@@ -202,8 +202,10 @@ def generate_index():
     for recipe_file in os.listdir(os.path.join(os.getcwd(),RECIPE_DIR)):
         if recipe_file.endswith("yaml") and not recipe_file.startswith("index"):
             recipe = Recipe.load(recipe_file)
-            print(recipe.name, recipe_file)
-            update_index(recipe.name, recipe_file, None)
+            if not recipe.name:
+                print(f" Recipe in {recipe_file} does not have a name. Skipping...")
+            else:
+                update_index(recipe.name, recipe_file, None)
             
             
 def format_ingredient_name(ingredient_name):
