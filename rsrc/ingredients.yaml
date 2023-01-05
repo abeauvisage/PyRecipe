@@ -39,6 +39,15 @@ broccoli:
 butter:
   alternatives:
   - beurre
+butternut:
+  season:
+  - 1
+  - 2
+  - 3
+  - 9
+  - 10
+  - 11
+  - 12
 camembert: {}
 carrot:
   alternatives:
@@ -205,6 +214,9 @@ stock:
   alternatives:
   - boullion
 thym: {}
+thyme:
+  alternatives:
+  - thym
 tofu: {}
 tomato:
   alternatives:
