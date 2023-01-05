@@ -1,7 +1,7 @@
 name: test
 nb_persons: 4
 ingredients:
-- name: gdzfs
+- name: thyme
   quantity: 1.0
 instructions:
 - ''

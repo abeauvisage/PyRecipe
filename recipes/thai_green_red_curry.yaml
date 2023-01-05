@@ -3,7 +3,7 @@ nb_persons: 4
 ingredients:
 - description: coconut milk
   name: milk
-  volume: 250.0
+  volume: 0.25
 - description: "green/red tha\xEF curry paste"
   name: curry
   spoon: 1.0
