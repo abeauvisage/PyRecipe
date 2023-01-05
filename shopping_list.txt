@@ -1,32 +1,29 @@
-- potato: 2250.0g
-- carrot: x 5
-- onion: x 4
-- rice: 500g
-- curry (japanese curry cube): x 1
-- quesadillas: x 8
-- pepper: x 4
-- haricot (noir): 200.0g
-- cheddar: 400.0g
-- chili (fort): x 1
-- chili (doux): x 2
-- coriander: x 1
-- lime: x 1
-- tomato (conserve): x 2
-- aubergine: x 5
-- coulis de tomate: 0.2L
-- feta: 200g
-- thym: x 1
-- oil (huile d'olive ): x 2
-- apples: x 4
+- thyme: x 1
+- carrot (small): x 2
+- onion: x 2
+- garlic: x 4
+- farce (vegetarian ): 200.0g
+- tomato sauce: 4.0dL
+- parmesan: x 1
+- pasta (spaghetti ): 400.0g
+- leek: x 2
+- egg: x 2
 - butter: 250.0g
-- garlic: x 11
-- courgette: x 2
-- tomato: x 4
-- oil (olive): 6.0tbs
-- bouquet garnis: x 1
-- fish (Morue salée (cod fish)): 900.0g
-- milk: 1.0L
+- cream (single cream): 2.5dL
+- butternut: x 2
+- thyme (branches ): x 2
+- chevre (crotins): x 2
+- cream (crème fraîche ): 2.9999999999999996dL
 - pain de mie (tranches): x 16
 - mozzarella (boules): x 2
 - pesto: x 1
 - pepper (en boite): x 2
+- pasta: 400.0g
+- salmon: 200.0g
+- cream (creme fraiche): 2.9999999999999996dL
+- chives: x 1
+- lemon: x 1
+- curry (green/red thaï curry paste): 1.0tbs
+- rice: 400.0g
+- coriander: x 1
+- chili: x 1

@@ -13,7 +13,7 @@ UNITS = {
     "volume": ["L", "dL", "cL", "mL"],
 }
 
-SCALING_FACTORS = {"k": 1000, "d": 0.1, "c": 0.01, "m": 0.001}
+SCALING_FACTORS = {"k": 1000, "": 1.0, "d": 0.1, "c": 0.01, "m": 0.001}
 
 RECIPE_INDEX_FILE = os.path.join(os.getcwd(),RECIPE_DIR, "index.yaml")
 
@@ -164,7 +164,6 @@ def clean_index(recipe_index, id):
 
 def update_index(recipe_name, recipe_filename, id):
     recipe_index = get_full_recipe_index()
-    print("recipe index", recipe_index, id)
     if id is not None and id < recipe_index["current_counter"]:
         print("cleaning")
         clean_index(recipe_index, id)
