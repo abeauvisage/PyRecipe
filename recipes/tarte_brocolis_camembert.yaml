@@ -1,0 +1,23 @@
+name: Tarte brocolis camembert
+nb_persons: 4
+ingredients:
+- description: feuilettee
+  name: pate
+  quantity: 1.0
+- description: fraiche
+  name: cream
+  volume: 0.2
+- name: camembert
+  quantity: 1.0
+- name: brocoli
+  weight: 400.0
+- name: oeuf
+  quantity: 2.0
+- name: noix de muscade
+  quantity: 1.0
+instructions:
+- "Cuire les bouquets de brocolis \xE0 la vapeur pendant 25 mn. "
+- "M\xE9langer cr\xE8me fra\xEEche, oeufs, sel, poivre et muscade. "
+- "Disposer les bouquets de brocolis sur la p\xE2te, recouvrir de tranches de camembert\
+  \ et verser dessus la pr\xE9paration. "
+- "Faites cuire 30 mn au four pr\xE9chauff\xE9 \xE0 200\xB0C."

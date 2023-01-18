@@ -153,6 +153,10 @@ mozzarella: {}
 mushroom:
   alternatives:
   - champignons
+nutmeg:
+  alternatives:
+  - noix de muscade
+  - muscade
 oil:
   alternatives:
   - huile
